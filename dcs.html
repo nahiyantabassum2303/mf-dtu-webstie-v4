@@ -547,6 +547,96 @@
   }
   .qs-circle svg{width:28px; height:28px;}
   .qs-item span.label{font-size:var(--fs-sm); font-weight:500; line-height:1.4;}
+/* Quick services: platform buttons on the left, that platform's services side by side on the right */
+.qs-layout{display:grid; grid-template-columns:minmax(220px, 300px) 1fr; gap:24px; align-items:stretch; margin-top:24px;}
+.qs-nav{display:flex; flex-direction:column; gap:12px;}
+.qs-toggle{
+    width:100%; display:flex; align-items:center; gap:16px;
+    padding:14px 18px; min-height:var(--tap);
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md);
+    color:var(--ink); text-align:left; cursor:pointer;
+    transition:background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+.qs-toggle-tile{
+    width:48px; height:48px; border-radius:14px; flex:0 0 auto;
+    background:var(--pink-50); color:var(--pink-700);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease, color .2s ease;
+  }
+.qs-toggle-tile svg{width:24px; height:24px;}
+.qs-toggle-text{flex:1 1 auto; display:flex; flex-direction:column; line-height:1.3;}
+.qs-toggle-text strong{font-size:var(--fs-md); font-weight:600;}
+.qs-toggle-text small{font-size:var(--fs-sm); color:var(--ink-soft);}
+.qs-toggle-chev{flex:0 0 auto; color:var(--ink-soft); transition:transform .2s ease, color .2s ease;}
+.qs-toggle:hover{border-color:var(--pink-50); box-shadow:var(--shadow-1);}
+.qs-toggle.is-active{background:var(--pink-50); border-color:var(--pink-600); box-shadow:var(--shadow-1);}
+.qs-toggle.is-active .qs-toggle-tile{background:var(--pink-600); color:#fff;}
+.qs-toggle.is-active .qs-toggle-chev{color:var(--pink-700); transform:translateX(3px);}
+.qs-empty .qs-toggle-chev{display:none;}
+.qs-empty .qs-toggle{cursor:default;}
+.qs-empty .qs-toggle:hover{border-color:var(--line); box-shadow:none;}
+.qs-stage{border:1px solid var(--line); border-radius:var(--r-md); background:var(--surface); min-height:320px; padding:20px;}
+.qs-panel[hidden]{display:none;}
+.qs-panel{animation:qsFade .25s ease;}
+@keyframes qsFade{from{opacity:0; transform:translateX(-8px);} to{opacity:1; transform:none;}}
+.qs-group + .qs-group{margin-top:22px;}
+.qs-group-title{font-size:var(--fs-sm); font-weight:600; color:var(--ink-soft); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid var(--line);}
+.qs-panel-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(112px, 1fr)); gap:8px;}
+.qs-panel-grid .qs-item{flex:none; background:var(--paper);}
+.qs-panel-grid .qs-item:hover{background:var(--pink-50);}
+button.qs-item{border:1px solid transparent; font:inherit; color:inherit; cursor:pointer; transition:transform .2s ease, background .2s ease, border-color .2s ease;}
+.qs-panel-grid .qs-item:hover{transform:translateY(-3px);}
+.qs-panel-grid .qs-item.is-on{background:var(--pink-50); border-color:var(--pink-600);}
+.qs-circle{transition:background .2s ease, color .2s ease, transform .3s cubic-bezier(.2,1.4,.4,1);}
+.qs-item.is-on .qs-circle{background:var(--pink-600); color:#fff; transform:scale(1.08);}
+.qs-modal{position:fixed; inset:0; z-index:400; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(32,20,28,.55); backdrop-filter:blur(4px); animation:qsFadeIn .2s ease;}
+.qs-modal[hidden]{display:none;}
+body.qs-open{overflow:hidden;}
+@keyframes qsFadeIn{from{opacity:0;}}
+.qs-card{--qc:#A80062; --qb:#FDEEF6; position:relative; width:min(720px,100%); max-height:calc(100vh - 32px); overflow:auto; display:grid; grid-template-columns:minmax(190px,270px) 1fr; gap:24px; align-items:center; background:var(--paper); border-radius:var(--r-md); padding:24px; box-shadow:var(--shadow-2);}
+.qs-inner{display:contents;}
+.qs-x{position:absolute; top:12px; right:12px; z-index:1; width:36px; height:36px; border-radius:var(--pill); border:0; background:var(--qb); color:var(--qc); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform .2s ease;}
+.qs-x:hover{transform:rotate(90deg);}
+.qs-card.pop{animation:qsPop .5s cubic-bezier(.2,1.3,.4,1);}
+.qs-art{border-radius:var(--r-md); background:var(--qb); overflow:hidden; line-height:0;}
+.qs-art > svg{width:100%; height:auto; display:block;}
+.qs-art img{width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:6/5;}
+.qs-body{display:flex; flex-direction:column; align-items:flex-start; gap:10px; min-width:0;}
+.qs-body h3{font-size:var(--fs-md);}
+.qs-body p{margin:0; color:var(--ink-soft);}
+.qs-tag{font-size:var(--fs-sm); font-weight:600; color:var(--qc); background:var(--qb); border-radius:var(--pill); padding:2px 12px;}
+.qs-pts{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0; padding:0;}
+.qs-pts li{font-size:var(--fs-sm); color:var(--qc); background:var(--qb); border-radius:var(--pill); padding:3px 12px;}
+.qs-go{display:inline-flex; align-items:center; gap:8px; font-weight:600; color:var(--qc); padding:6px 0; border-bottom:2px solid currentColor;}
+.qs-go svg{transition:transform .2s ease;}
+.qs-go:hover svg{transform:translateX(5px);}
+.qs-fl{animation:qsFloat 3.4s ease-in-out infinite;}
+.qs-bl{transform-box:fill-box; transform-origin:center; animation:qsBlob 5s ease-in-out infinite;}
+.qs-tw{transform-box:fill-box; transform-origin:center; animation:qsTw 2.2s ease-in-out infinite;}
+.qs-card.pop .qs-art{animation:qsPop .6s .08s cubic-bezier(.2,1.3,.4,1) both;}
+.qs-card.pop .qs-body > *{animation:qsUp .45s ease both;}
+.qs-card.pop .qs-body > :nth-child(2){animation-delay:.05s;}
+.qs-card.pop .qs-body > :nth-child(3){animation-delay:.1s;}
+.qs-card.pop .qs-body > :nth-child(4){animation-delay:.15s;}
+.qs-card.pop .qs-body > :nth-child(5){animation-delay:.2s;}
+@keyframes qsFloat{50%{transform:translateY(-7px);}}
+@keyframes qsBlob{50%{transform:scale(1.07);}}
+@keyframes qsTw{50%{transform:scale(.4); opacity:.4;}}
+@keyframes qsPop{from{opacity:0; transform:scale(.88) rotate(-3deg);} to{opacity:1; transform:none;}}
+@keyframes qsUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+@media (max-width:720px){ .qs-card{grid-template-columns:1fr; gap:16px; padding:16px; padding-top:56px;} .qs-art{max-width:300px; margin-inline:auto; width:100%;} }
+@media (prefers-reduced-motion:reduce){ .qs-card, .qs-card *, .qs-modal, .qs-item, .qs-circle{animation:none !important; transition:none !important;} }
+@media (max-width:720px){
+  .qs-layout{grid-template-columns:1fr; gap:16px;}
+  .qs-nav{flex-direction:row; gap:8px; overflow-x:auto; scrollbar-width:none;}
+  .qs-nav::-webkit-scrollbar{display:none;}
+  .qs-toggle{flex:1 0 auto; width:auto; padding:10px 14px; gap:10px;}
+  .qs-toggle-tile{width:36px; height:36px; border-radius:10px;}
+  .qs-toggle-tile svg{width:20px; height:20px;}
+  .qs-toggle-text strong{font-size:var(--fs-base);}
+  .qs-toggle-text small, .qs-toggle-chev{display:none;}
+  .qs-stage{min-height:0; padding:14px;}
+}
 
   /* =========================================================
      Reviews
@@ -900,13 +990,20 @@
   .dcs-logo-card.hero-photo{aspect-ratio:1/1; max-width:380px; background:var(--paper); border:1px solid var(--line);}
   .dcs-logo-card .img-frame{position:absolute; inset:0; background:transparent;}
   .dcs-logo-card .img-frame img{object-fit:contain; padding:16%; transform:none !important;}
-  .cov-grid.stats-grid{grid-template-columns:repeat(2, 1fr); max-width:760px; margin-inline:auto;}
-  .cov-card.stat-card{margin-bottom:0; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); box-shadow:var(--shadow-1); padding:32px 24px 28px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px;}
-  .cov-card .who-icon{width:56px; height:56px; margin-bottom:4px;}
-  .cov-card h3{font-size:var(--fs-md);}
-  .cov-card strong{display:block; font-size:var(--fs-xl); font-weight:600; line-height:1.1; color:var(--pink-600);}
-  .cov-card p{font-size:var(--fs-sm); color:var(--ink-soft); max-width:26ch;}
   .dcs-steps.steps .step{padding-top:28px;}
+  .dcs-fact{margin-top:28px;}
+  .dcs-fact .hero-stat{margin-bottom:14px;}
+  .why-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;}
+  .why-card{padding:32px 22px 28px; gap:12px;}
+  .why-card p{font-size:var(--fs-sm); line-height:1.65; color:var(--ink-soft);}
+  .dcs-services .check-list{margin-top:16px; gap:12px;}
+  .dcs-services .check-list li{align-items:center; color:var(--ink);}
+  .dcs-services .check-list .ci{width:28px; height:28px;}
+  .dcs-services .check-list .ci svg{width:16px; height:16px;}
+  .dcs-services .step p.cat-note{font-size:var(--fs-sm);}
+  @media (max-width:1000px){ .why-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:900px){ .dcs-services.steps{grid-template-columns:1fr;} }
+  @media (max-width:560px){ .why-grid{grid-template-columns:1fr;} }
   .btn-light{background:#fff; color:var(--pink-700);}
   .btn-light:hover{background:var(--pink-50);}
   .btn-ghost-light{background:transparent; border-color:rgba(255,255,255,.75); color:#fff;}
@@ -915,10 +1012,16 @@
   .dcs-cta-logo{aspect-ratio:1/1; max-width:240px; margin-inline:auto; width:100%; border-radius:var(--r-md); background:#fff; position:relative;}
   .dcs-cta-logo.img-frame{background:#fff;}
   .dcs-cta-logo.img-frame img{object-fit:contain; padding:14%;}
+.cta-logos{display:flex; justify-content:center; align-items:center; gap:clamp(12px,2vw,20px);}
+.cta-logo{flex:1 1 0; max-width:150px; aspect-ratio:1/1; border-radius:var(--r-md); background:#fff; box-shadow:0 6px 16px rgba(0,0,0,.14); transition:transform .45s cubic-bezier(.2,1.4,.4,1), box-shadow .3s ease; will-change:transform;}
+.cta-logo.img-frame{background:#fff;}
+.cta-logo.img-frame img{object-fit:contain; padding:14%; transform:none !important;}
+.cta-logo-agami.is-pop, .cta-logo-agami:hover{transform:translateY(-10px) scale(1.1) rotate(-4deg); box-shadow:0 16px 30px rgba(0,0,0,.28);}
+.cta-logo-ekota.is-pop, .cta-logo-ekota:hover{transform:translateY(-10px) scale(1.1) rotate(4deg); box-shadow:0 16px 30px rgba(0,0,0,.28);}
+@media (prefers-reduced-motion:reduce){ .cta-logo{transition:none;} .cta-logo.is-pop, .cta-logo:hover{transform:none;} }
   @media (max-width:760px){
     .dcs-logo-card.hero-photo{aspect-ratio:1/1; max-width:260px; width:100%;}
-    .cov-grid.stats-grid{grid-template-columns:1fr;}
-  }
+    }
 </style>
 
 <style id="motion-css">
@@ -1175,6 +1278,12 @@
   <symbol id="iconCheck" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M8 12.5l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="iconCoins" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M14.6 9.3c-.5-.8-1.4-1.3-2.6-1.3-1.5 0-2.5.7-2.5 1.8 0 2.6 5.1 1.2 5.1 3.8 0 1.1-1.1 1.9-2.6 1.9-1.2 0-2.2-.5-2.7-1.4M12 6.5V8M12 16v1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="iconInfo" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5M12 8v.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="iconShield" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2.2 2.2L15.5 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="iconClock" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="iconMapPin" viewBox="0 0 24 24" fill="none"><path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.7"/></symbol>
+<symbol id="iconCalc" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="currentColor" stroke-width="1.7"/><rect x="8" y="6" width="8" height="3.5" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="iconLeaf" viewBox="0 0 24 24" fill="none"><path d="M5 19c0-8.5 5-13.5 14-14 0 9-5 14-13.5 14" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M5 19c3-4.5 6-7.5 10-9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+<symbol id="iconHeart" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
 </svg>
 
 <header>
@@ -1235,9 +1344,8 @@
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <span class="ekota-eyebrow">ডিসিএস</span>
-        <h1>মাঠ পর্যায়ে দ্রুত সেবা, কাগজ ছাড়াই</h1>
-        <p class="lead">ডিসিএস-এর মাধ্যমে মাঠ পর্যায়ে গ্রাহকসেবা হয় আরও দ্রুত, আর ব্র্যাক মাইক্রোফাইন্যান্স এগিয়ে যায় পেপারলেস লক্ষ্যের পথে।</p>
-        <div class="hero-stat"><strong>১০০%</strong><span>দাবি ও প্রগতি প্রোগ্রামের শাখায় ব্যবহৃত</span></div>
+        <h1>গ্রাহকের দোরগোড়ায় নির্ভরযোগ্য সেবা।</h1>
+        <p class="lead">ঋণ, বিমা ও সঞ্চয়  -  ব্র্যাক মাইক্রোফাইন্যান্সের সব সেবা ডিসিএস-এর মাধ্যমে।</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#about">ডিসিএস সম্পর্কে জানুন</a>
           <a class="link-more" href="#why">কেন ডিসিএস <svg width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg></a>
@@ -1248,48 +1356,96 @@
     </div>
   </section>
 
-  <!-- What is DCS -->
+  <!-- 1. What is DCS -->
   <section class="section wrap" id="about" aria-labelledby="aboutTitle">
     <div class="split">
       <div class="split-copy">
         <span class="ekota-eyebrow">পরিচিতি</span>
         <h2 id="aboutTitle">ডিসিএস কী?</h2>
-        <p class="lead-p">ডিসিএস ব্র্যাক মাইক্রোফাইন্যান্সের একটি ডিজিটাল প্ল্যাটফর্ম। মাঠ পর্যায়ে দ্রুত গ্রাহক সেবা দেওয়া এবং কাগজের ব্যবহার কমিয়ে পেপারলেস লক্ষ্য নিশ্চিত করার উদ্দেশ্যে এটি ব্যবহার করা হয়।</p>
-        <ul class="check-list">
-          <li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>মাঠ পর্যায়েই দ্রুত গ্রাহক সেবা নিশ্চিত করা</span></li>
-          <li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>কাগজনির্ভর কাজ কমিয়ে পেপারলেস লক্ষ্যের দিকে এগিয়ে যাওয়া</span></li>
-          <li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>দাবি ও প্রগতি প্রোগ্রামের সব শাখায় একই ডিজিটাল ব্যবস্থা</span></li>
-        </ul>
-        <p class="def-box"><strong>পেপারলেস লক্ষ্য মানে কী?</strong> কাজের রেকর্ড ও লেনদেনের তথ্য কাগজের বদলে ডিজিটালভাবে সংরক্ষণ ও পরিচালনা করা।</p>
+        <p class="lead-p">ডিসিএস ব্র্যাক মাইক্রোফাইন্যান্সের একটি ডিজিটাল প্ল্যাটফর্ম।</p>
+        <p class="lead-p" style="margin-top:14px">ব্র্যাকের মাঠকর্মীরা ডিসিএস ব্যবহার করে গ্রাহকের কাছে গিয়েই সেবা দেন এবং লেনদেনের হিসাব সরাসরি ডিজিটাল ব্যবস্থায় সংরক্ষণ করেন।</p>
       </div>
       <div class="split-media img-frame"><img src="assets/dcs-field.jpg" alt="মাঠ পর্যায়ে ডিসিএস ব্যবহার করে গ্রাহকসেবা দিচ্ছেন একজন ব্র্যাক কর্মী" width="800" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/dcs-field.jpg</span></div>
     </div>
   </section>
 
-  <!-- Coverage -->
-  <section class="section band" id="coverage" aria-labelledby="covTitle">
+  <!-- 2. Why DCS (client-centric) -->
+  <section class="section band" id="why" aria-labelledby="whyTitle">
     <div class="wrap">
       <div class="section-head center">
-        <h2 id="covTitle">দুই প্রোগ্রামের সব শাখায় ডিসিএস</h2>
-        <p>মাইক্রোফাইন্যান্স কর্মসূচির দাবি ও প্রগতি প্রোগ্রামের প্রতিটি শাখায় ডিসিএস ব্যবহার করা হয়</p>
+        <h2 id="whyTitle">কেন ডিসিএস?</h2>
+        <p>গ্রাহকের আস্থা ও সুবিধার কথা মাথায় রেখে</p>
       </div>
-      <div class="stats-grid cov-grid">
-        <article class="stat-card cov-card"><span class="who-icon"><svg aria-hidden="true"><use href="#iconUsers"/></svg></span><h3>দাবি প্রোগ্রাম</h3><strong>১০০%</strong><p>শাখায় ডিসিএস ব্যবহার করা হয়</p></article>
-        <article class="stat-card cov-card"><span class="who-icon"><svg aria-hidden="true"><use href="#iconUsers"/></svg></span><h3>প্রগতি প্রোগ্রাম</h3><strong>১০০%</strong><p>শাখায় ডিসিএস ব্যবহার করা হয়</p></article>
+      <div class="why-grid">
+        <article class="who-card why-card"><span class="who-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.4 2.9 7.9 7 9.5 4.1-1.6 7-5.1 7-9.5V6l-7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2.2 2.2L15.2 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>নিরাপত্তা</h3><p>গ্রাহকের তথ্য ও লেনদেনের রেকর্ড ডিজিটাল ব্যবস্থায় সুরক্ষিত থাকে।</p></article>
+        <article class="who-card why-card"><span class="who-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg></span><h3>স্বচ্ছতা</h3><p>ঋণ, বিমা ও সঞ্চয়ের প্রতিটি লেনদেনের হিসাব গ্রাহক স্পষ্টভাবে জানতে পারেন।</p></article>
+        <article class="who-card why-card"><span class="who-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20V3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3.5v4h4M9.8 14.2l1.7 1.7 3-3.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>নীতিমালা মেনে সেবা</h3><p>ব্র্যাকের নিয়ম ও নীতিমালা অনুসরণ করে সেবা পাওয়ার নিশ্চয়তা।</p></article>
+        <article class="who-card why-card"><span class="who-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></span><h3>দ্রুত সেবা</h3><p>প্রক্রিয়া দ্রুত হওয়ায় গ্রাহক কম সময়ে সেবা পান।</p></article>
       </div>
     </div>
   </section>
 
-  <!-- Why DCS -->
-  <section class="section wrap" id="why" aria-labelledby="whyTitle">
+  <!-- 3. Services through DCS -->
+  <section class="section wrap" id="services" aria-labelledby="svcTitle">
     <div class="section-head center">
-      <h2 id="whyTitle">কেন ডিসিএস?</h2>
-      <p>মাঠ পর্যায়ের কাজ সহজ করতে তিনটি লক্ষ্য সামনে রেখে</p>
+      <h2 id="svcTitle">ডিসিএস-এর মাধ্যমে কী কী সেবা নেওয়া যায়?</h2>
+      <p>ঋণ, বিমা ও সঞ্চয়  -  তিন ধরনের সেবা</p>
     </div>
-    <div class="steps dcs-steps">
-      <article class="step"><span class="step-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></span><h3>দ্রুত গ্রাহক সেবা</h3><p>মাঠ পর্যায়ে গ্রাহক যেন কম সময়ে সেবা পান, সেটাই ডিসিএস-এর অন্যতম লক্ষ্য।</p></article>
-      <article class="step"><span class="step-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20V3.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3.5v4h4M9.8 14.2l1.7 1.7 3-3.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>পেপারলেস লক্ষ্য</h3><p>কাগজের কাজ কমিয়ে ডিজিটাল প্রক্রিয়ায় কার্যক্রম পরিচালনার লক্ষ্য নিশ্চিত করা।</p></article>
-      <article class="step"><span class="step-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/></svg></span><h3>সব শাখায় অভিন্ন ব্যবস্থা</h3><p>দাবি ও প্রগতি প্রোগ্রামের ১০০% শাখা একই ডিজিটাল ব্যবস্থায় কাজ করে।</p></article>
+    <div class="qs-layout" data-qs-layout>
+  <div class="qs-nav">
+    <button class="qs-toggle is-active" type="button" id="qsLoanBtn" data-qs-target="qsLoanPanel" aria-expanded="true" aria-controls="qsLoanPanel">
+      <span class="qs-toggle-tile"><svg aria-hidden="true"><use href="#iconCoins"/></svg></span>
+      <span class="qs-toggle-text"><strong>ঋণ</strong><small>৬টি ধরন</small></span>
+      <svg class="qs-toggle-chev" width="16" height="16" aria-hidden="true"><use href="#chevR"/></svg>
+    </button>
+    <button class="qs-toggle" type="button" id="qsInsBtn" data-qs-target="qsInsPanel" aria-expanded="false" aria-controls="qsInsPanel">
+      <span class="qs-toggle-tile"><svg aria-hidden="true"><use href="#iconShield"/></svg></span>
+      <span class="qs-toggle-text"><strong>বিমা</strong><small>৩টি ধরন</small></span>
+      <svg class="qs-toggle-chev" width="16" height="16" aria-hidden="true"><use href="#chevR"/></svg>
+    </button>
+    <button class="qs-toggle" type="button" id="qsSaveBtn" data-qs-target="qsSavePanel" aria-expanded="false" aria-controls="qsSavePanel">
+      <span class="qs-toggle-tile"><svg aria-hidden="true"><use href="#qsSaving"/></svg></span>
+      <span class="qs-toggle-text"><strong>সঞ্চয়</strong><small>৬টি ধরন</small></span>
+      <svg class="qs-toggle-chev" width="16" height="16" aria-hidden="true"><use href="#chevR"/></svg>
+    </button>
+  </div>
+  <div class="qs-stage">
+    <div class="qs-panel" id="qsLoanPanel" data-plat="ঋণ" role="region" aria-labelledby="qsLoanBtn">
+      <div class="qs-panel-grid">
+        <button type="button" class="qs-item" data-qs="l-general"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconCoins"/></svg></span><span class="label">সাধারণ লোন</span></button>
+        <button type="button" class="qs-item" data-qs="l-pratyasha"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#qsSaving"/></svg></span><span class="label">প্রত্যাশা লোন</span></button>
+        <button type="button" class="qs-item" data-qs="l-business"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconWallet"/></svg></span><span class="label">ব্যবসা/ট্রেড লোন</span></button>
+        <button type="button" class="qs-item" data-qs="l-migration"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconMapPin"/></svg></span><span class="label">মাইগ্রেশন লোন</span></button>
+        <button type="button" class="qs-item" data-qs="l-remit"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconCoins"/></svg></span><span class="label">রেমিট্যান্স লোন</span></button>
+        <button type="button" class="qs-item" data-qs="l-dependency"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconUsers"/></svg></span><span class="label">নির্ভরতা লোন</span></button>
+      </div>
+    </div>
+    <div class="qs-panel" id="qsInsPanel" data-plat="বিমা" role="region" aria-labelledby="qsInsBtn" hidden>
+      <div class="qs-panel-grid">
+        <button type="button" class="qs-item" data-qs="i-loan"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconShield"/></svg></span><span class="label">ঋণ নিরাপত্তা বিমা</span></button>
+        <button type="button" class="qs-item" data-qs="i-crop"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconLeaf"/></svg></span><span class="label">শস্যনিরাপত্তা বিমা</span></button>
+        <button type="button" class="qs-item" data-qs="i-livestock"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconHeart"/></svg></span><span class="label">গবাদিপ্রাণি নিরাপত্তা বিমা</span></button>
+      </div>
+    </div>
+    <div class="qs-panel" id="qsSavePanel" data-plat="সঞ্চয়" role="region" aria-labelledby="qsSaveBtn" hidden>
+      <div class="qs-group" data-plat="সাধারণ সঞ্চয়">
+        <h3 class="qs-group-title">সাধারণ সঞ্চয়</h3>
+        <div class="qs-panel-grid">
+        <button type="button" class="qs-item" data-qs="s-passbook"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#qsSaving"/></svg></span><span class="label">সাধারণ বা পাসবই সঞ্চয়</span></button>
+        <button type="button" class="qs-item" data-qs="s-myaccount"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconWallet"/></svg></span><span class="label">আমার হিসাব সঞ্চয়</span></button>
+        </div>
+      </div>
+      <div class="qs-group" data-plat="বিশেষ সঞ্চয়">
+        <h3 class="qs-group-title">বিশেষ সঞ্চয়</h3>
+        <div class="qs-panel-grid">
+        <button type="button" class="qs-item" data-qs="s-lumpsum"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconCoins"/></svg></span><span class="label">এককালীন স্থায়ী সঞ্চয় প্রকল্প</span></button>
+        <button type="button" class="qs-item" data-qs="s-dps"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconClock"/></svg></span><span class="label">ডিপিএস (নিয়মিত মাসিক জমা)</span></button>
+        <button type="button" class="qs-item" data-qs="s-monthly"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconCalc"/></svg></span><span class="label">মাসিক মুনাফা ভিত্তিক সঞ্চয় প্রকল্প</span></button>
+        <button type="button" class="qs-item" data-qs="s-moneyplant"><span class="qs-circle"><svg width="26" height="26" aria-hidden="true"><use href="#iconLeaf"/></svg></span><span class="label">মানিপ্ল্যান্ট সঞ্চয় প্রকল্প</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
     </div>
   </section>
 
@@ -1300,12 +1456,15 @@
         <h2 id="moreTitle">অন্য ডিজিটাল প্ল্যাটফর্মগুলোও দেখুন</h2>
         <p>আগামী ও একতা অ্যাপের সুবিধাগুলো সম্পর্কে জানুন।</p>
         <div class="cta-actions">
-          <a class="btn btn-light" href="agami.html">আগামী অ্যাপ</a>
-          <a class="btn btn-ghost-light" href="ekota.html">একতা অ্যাপ</a>
+          <a class="btn btn-light" href="agami.html" data-logo="#ctaLogoAgami">আগামী অ্যাপ</a>
+          <a class="btn btn-ghost-light" href="ekota.html" data-logo="#ctaLogoEkota">একতা অ্যাপ</a>
         </div>
       </div>
-      <!-- DCS logo placeholder (same file as the hero) -->
-      <div class="dcs-cta-logo img-frame"><img src="assets/dcs-logo.png" alt="ডিসিএস লোগো" width="400" height="400" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/dcs-logo.png</span></div>
+      <!-- Agami and Ekota logo placeholders: replace assets/agami-logo.png and assets/ekota-logo.png -->
+      <div class="cta-logos">
+        <div class="cta-logo img-frame cta-logo-agami" id="ctaLogoAgami"><img src="assets/agami-logo.png" alt="আগামী অ্যাপের লোগো" width="300" height="300" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-logo.png</span></div>
+        <div class="cta-logo img-frame cta-logo-ekota" id="ctaLogoEkota"><img src="assets/ekota-logo.png" alt="একতা অ্যাপের লোগো" width="300" height="300" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-logo.png</span></div>
+      </div>
     </div>
   </section>
 
@@ -1509,6 +1668,107 @@
     });
   })();
 </script>
+<script id="qs-js">
+(function(){
+  'use strict';
+  /* ---------- Quick services: platform buttons (hover / focus / tap) show their services on the right ---------- */
+  (function initQsLayout(){
+    const layout = document.querySelector('[data-qs-layout]');
+    if(!layout) return;
+    const buttons = Array.from(layout.querySelectorAll('[data-qs-target]'));
+    const panels = Array.from(layout.querySelectorAll('.qs-panel'));
+    function show(btn){
+      if(btn.classList.contains('qs-empty')) return;   // no services yet
+      buttons.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-expanded', String(on));
+      });
+      panels.forEach((p) => { p.hidden = p.id !== btn.dataset.qsTarget; });
+    }
+    buttons.forEach((btn) => {
+      btn.addEventListener('mouseenter', () => show(btn));   // stays open after the pointer leaves, so services can be clicked
+      btn.addEventListener('focus', () => show(btn));
+      btn.addEventListener('click', () => show(btn));
+    });
+  })();
+
+  /* ---------- Quick services: click a service to open its popup card (picture, short info, link to details) ---------- */
+  (function initQsCards(){
+    var D = {"l-general":{"t":"সাধারণ লোন","d":"আর্থিক অন্তর্ভুক্তিতে শক্তিশালী পারিবারিক মূলধন গঠনের লক্ষ্যে, চলতি মূলধনের ঘাটতি আছে এমন গ্রাম ও শহরের পরিবারের জন্য।","p":["গ্রাম ও শহরের পরিবার","চলতি মূলধনের ঘাটতি","পারিবারিক মূলধন গঠন"],"c":"#A80062","b":"#FDEEF6","f":["iconUsers","iconWallet","iconCheck"],"i":""},"l-pratyasha":{"t":"প্রত্যাশা লোন","d":"বিশেষ সঞ্চয় প্রকল্প আছে এমন গ্রাহক, যাদের তাৎক্ষণিক আর্থিক চাহিদা রয়েছে।","p":["বিশেষ সঞ্চয় প্রকল্পের গ্রাহক","তাৎক্ষণিক আর্থিক চাহিদা"],"c":"#6B2F8F","b":"#F3EAFA","f":["iconCoins","iconClock","iconCheck"],"i":""},"l-business":{"t":"ব্যবসা/ট্রেড লোন","d":"ব্যবসা সম্প্রসারণ বা চলতি মূলধনের চাহিদা মেটাতে ক্ষুদ্র ও মাঝারি ব্যবসায়ীদের জন্য।","p":["ক্ষুদ্র ও মাঝারি ব্যবসায়ী","ব্যবসা সম্প্রসারণ","চলতি মূলধন"],"c":"#0A6F65","b":"#E4F5F2","f":["iconCoins","iconCalc","iconCheck"],"i":""},"l-migration":{"t":"মাইগ্রেশন লোন","d":"উপার্জনের উদ্দেশ্যে বৈধভাবে বিদেশ গমন করবেন এমন ব্যক্তির জন্য।","p":["বৈধভাবে বিদেশ গমন","উপার্জনের উদ্দেশ্যে"],"c":"#8A5200","b":"#FFF1D6","f":["iconCoins","iconCheck","iconUsers"],"i":""},"l-remit":{"t":"রেমিট্যান্স লোন","d":"প্রবাসী ব্যক্তির দেশে থাকা পরিবারের নিকটতম সদস্যদের বৈধ ব্যবসার প্রয়োজনে।","p":["প্রবাসীর পরিবারের নিকটতম সদস্য","বৈধ ব্যবসা"],"c":"#2255C4","b":"#E7EEFD","f":["iconMapPin","iconUsers","iconCheck"],"i":""},"l-dependency":{"t":"নির্ভরতা লোন","d":"পারিবারিক প্রয়োজন মেটাতে সীমিত আয়ের চাকুরিজীবী ব্যক্তির জন্য।","p":["সীমিত আয়ের চাকুরিজীবী","পারিবারিক প্রয়োজন"],"c":"#A80062","b":"#FDEEF6","f":["iconCoins","iconWallet","iconCheck"],"i":""},"i-loan":{"t":"ঋণ নিরাপত্তা বিমা","d":"মাইক্রোফাইন্যান্স কর্মসূচির সকল ঋণগ্রহীতা ও তাদের পরিবারের আর্থিক সুরক্ষার ব্যবস্থা। মৃত্যুর পর বকেয়া কিস্তি মওকুফ হয়, তাৎক্ষণিক আর্থিক সহায়তা পাওয়া যায় এবং ব্র্যাকে জমা সকল সঞ্চয় সুরক্ষিত থাকে।","p":["বকেয়া কিস্তি মওকুফ","তাৎক্ষণিক আর্থিক সহায়তা","ব্র্যাকে জমা সঞ্চয় সুরক্ষিত"],"c":"#2255C4","b":"#E7EEFD","f":["iconUsers","iconCoins","iconCheck"],"i":""},"i-crop":{"t":"শস্যনিরাপত্তা বিমা","d":"জলবায়ু পরিবর্তনজনিত ঝুঁকিতে কৃষকদের ফসলের ক্ষয়ক্ষতি কাটিয়ে উঠতে সাহায্য করে। বোরো ধান, আমন ধান, আলু, ভুট্টাসহ অন্যান্য ফসলে বিমা করা যায়। এর দুই ধরন আছে: আবহাওয়া সূচক শস্য বিমা এবং এলাকা ফলনসূচক শস্য বিমা।","p":["আবহাওয়া সূচক শস্য বিমা","এলাকা ফলনসূচক শস্য বিমা","বোরো, আমন, আলু, ভুট্টাসহ অন্যান্য ফসল"],"c":"#0A6F65","b":"#E4F5F2","f":["iconShield","iconCheck","iconCoins"],"i":""},"i-livestock":{"t":"গবাদিপ্রাণি নিরাপত্তা বিমা","d":"গবাদিপ্রাণী লালন-পালনে উৎসাহ দিতে এবং ক্ষতির বিপরীতে আর্থিক সুরক্ষা দিতে চালু করা হয়েছে। এর দুই ধরন আছে: দুগ্ধজাত গাভি এবং গরু মোটাতাজাকরণ। রোগ, দুর্ঘটনা, গর্ভাবস্থার জটিলতায় মৃত্যু ও স্থায়ী অঙ্গহানির ঝুঁকি আওতাভুক্ত।","p":["দুগ্ধজাত গাভি","গরু মোটাতাজাকরণ","রোগ, দুর্ঘটনা ও গর্ভাবস্থার জটিলতায় মৃত্যু","স্থায়ী অঙ্গহানি"],"c":"#8A5200","b":"#FFF1D6","f":["iconShield","iconCheck","iconCoins"],"i":""},"s-passbook":{"t":"সাধারণ বা পাসবই সঞ্চয়","d":"ইচ্ছা ও সামর্থ্য অনুযায়ী নিয়মিত বা অনিয়মিত জমা ও উত্তোলন, বার্ষিক ৬% হারে লাভ।","p":["নিয়মিত বা অনিয়মিত জমা ও উত্তোলন","বার্ষিক ৬% হারে লাভ"],"c":"#A80062","b":"#FDEEF6","f":["iconCoins","iconCheck","iconWallet"],"i":""},"s-myaccount":{"t":"আমার হিসাব সঞ্চয়","d":"দিনে একাধিকবার জমা ও উত্তোলন করা যায়, বার্ষিক ৬% হারে লাভ। আবেদনের জন্য সক্রিয় মোবাইল নম্বর লাগে।","p":["দিনে একাধিকবার জমা ও উত্তোলন","বার্ষিক ৬% হারে লাভ","সক্রিয় মোবাইল নম্বর লাগে"],"c":"#6B2F8F","b":"#F3EAFA","f":["iconCoins","iconClock","iconCheck"],"i":""},"s-lumpsum":{"t":"এককালীন স্থায়ী সঞ্চয় প্রকল্প","d":"একসাথে টাকা জমা রেখে মেয়াদ শেষে লভ্যাংশসহ আসল টাকা ফেরত পাওয়া যায়।","p":["একসাথে টাকা জমা","মেয়াদ শেষে লভ্যাংশসহ আসল ফেরত"],"c":"#0A6F65","b":"#E4F5F2","f":["iconClock","iconCheck","iconWallet"],"i":""},"s-dps":{"t":"ডিপিএস (নিয়মিত মাসিক জমা)","d":"ব্র্যাকের যেকোনো চলতি সদস্য বা নতুন সদস্য হয়ে মাসিক জমাভিত্তিক সঞ্চয় প্রকল্প খুলতে পারেন।","p":["চলতি বা নতুন সদস্য","মাসিক জমাভিত্তিক"],"c":"#8A5200","b":"#FFF1D6","f":["iconCoins","iconUsers","iconCheck"],"i":""},"s-monthly":{"t":"মাসিক মুনাফা ভিত্তিক সঞ্চয় প্রকল্প","d":"একসাথে টাকা জমা রেখে প্রতি মাসে মুনাফা গ্রহণ করা যায়।","p":["একসাথে টাকা জমা","প্রতি মাসে মুনাফা"],"c":"#2255C4","b":"#E7EEFD","f":["iconCoins","iconClock","iconCheck"],"i":""},"s-moneyplant":{"t":"মানিপ্ল্যান্ট সঞ্চয় প্রকল্প","d":"আংশিক টাকা জমা দিয়ে হিসাব খুলে বাকি টাকা নির্দিষ্ট সময়ের মধ্যে মাসে মাসে জমা দেওয়া যায়। এটি দ্বিগুণ (৭ বছর ৬ মাস) বা দেড়গুণ (৪ বছর ৬ মাস) মেয়াদি।","p":["আংশিক টাকা জমা দিয়ে হিসাব খোলা","দ্বিগুণ: ৭ বছর ৬ মাস","দেড়গুণ: ৪ বছর ৬ মাস"],"c":"#A80062","b":"#FDEEF6","f":["iconCoins","iconClock","iconCheck"],"i":""}};
+    // To use a real photo instead of the drawn picture, set "i" for that service, e.g. "assets/qs-referrer.jpg".
+    function art(s){
+      var c = s.c, b = s.b;
+      var fl = s.f.map(function(n, i){
+        var x = [36,200,204][i], y = [46,72,142][i];
+        return '<g class="qs-fl" style="animation-delay:' + (i * .6) + 's"><circle cx="' + x + '" cy="' + y + '" r="17" fill="#fff" stroke="' + c + '" stroke-opacity=".25" stroke-width="2"/><svg x="' + (x - 9) + '" y="' + (y - 9) + '" width="18" height="18" style="color:' + c + '"><use href="#' + n + '"/></svg></g>';
+      }).join('');
+      var star = function(x, y, d){ return '<path class="qs-tw" style="animation-delay:' + d + 's" d="M' + x + ' ' + (y - 7) + 'L' + (x + 2) + ' ' + (y - 2) + 'L' + (x + 7) + ' ' + y + 'L' + (x + 2) + ' ' + (y + 2) + 'L' + x + ' ' + (y + 7) + 'L' + (x - 2) + ' ' + (y + 2) + 'L' + (x - 7) + ' ' + y + 'L' + (x - 2) + ' ' + (y - 2) + 'Z" fill="' + c + '"/>'; };
+      return '<svg viewBox="0 0 240 200" role="img" aria-label="' + s.t + '">'
+        + '<circle class="qs-bl" cx="120" cy="100" r="86" fill="#fff" opacity=".65"/><circle cx="52" cy="168" r="9" fill="' + c + '" opacity=".18"/><circle cx="190" cy="26" r="6" fill="' + c + '" opacity=".25"/>'
+        + '<rect x="84" y="14" width="72" height="162" rx="15" fill="#fff" stroke="' + c + '" stroke-width="3"/><rect x="106" y="20" width="28" height="5" rx="2.5" fill="' + b + '"/>'
+        + '<rect x="91" y="32" width="58" height="26" rx="8" fill="' + b + '"/><circle cx="120" cy="92" r="22" fill="' + c + '"/><svg x="107" y="79" width="26" height="26" style="color:#fff"><use href="#' + s.g + '"/></svg>'
+        + '<rect x="98" y="126" width="44" height="7" rx="3.5" fill="' + b + '"/><rect x="106" y="140" width="28" height="7" rx="3.5" fill="' + b + '"/><rect x="99" y="156" width="42" height="11" rx="5.5" fill="' + c + '" opacity=".85"/>'
+        + fl + star(54, 118, 0) + star(188, 30, .9) + star(176, 172, 1.5) + '</svg>';
+    }
+    var modal = document.createElement('div');
+    modal.className = 'qs-modal';
+    modal.hidden = true;
+    modal.innerHTML = '<div class="qs-card" role="dialog" aria-modal="true" aria-live="polite"><button type="button" class="qs-x" aria-label="বন্ধ করুন"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="qs-inner"></div></div>';
+    document.body.appendChild(modal);
+    var card = modal.firstChild, inner = card.querySelector('.qs-inner'), closeBtn = card.querySelector('.qs-x'), opener = null;
+    function openCard(it){
+      var s = D[it.dataset.qs], plat = it.closest('[data-plat]').dataset.plat;
+      opener = it;
+      card.style.setProperty('--qc', s.c);
+      card.style.setProperty('--qb', s.b);
+      card.setAttribute('aria-label', s.t);
+      inner.innerHTML = '<div class="qs-art">' + (s.i ? '<img src="' + s.i + '" alt="' + s.t + '" loading="lazy">' : art(s)) + '</div>'
+        + '<div class="qs-body"><span class="qs-tag">' + plat + '</span><h3>' + s.t + '</h3><p>' + s.d + '</p>'
+        + (s.p.length ? '<ul class="qs-pts">' + s.p.map(function(p){ return '<li>' + p + '</li>'; }).join('') + '</ul>' : '')
+        + (s.l ? '<a class="qs-go" href="' + s.l + '">বিস্তারিত দেখুন <svg width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg></a>' : '') + '</div>';
+      modal.hidden = false;
+      document.body.classList.add('qs-open');
+      card.classList.remove('pop'); void card.offsetWidth; card.classList.add('pop');
+      closeBtn.focus();
+    }
+    function closeCard(){
+      if(modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove('qs-open');
+      if(opener) opener.focus();
+    }
+    document.querySelectorAll('[data-qs]').forEach(function(it){
+      it.setAttribute('aria-haspopup', 'dialog');
+      it.addEventListener('click', function(){ openCard(it); });
+    });
+    closeBtn.addEventListener('click', closeCard);
+    modal.addEventListener('click', function(e){ if(e.target === modal) closeCard(); });
+    document.addEventListener('keydown', function(e){
+      if(modal.hidden) return;
+      if(e.key === 'Escape'){ closeCard(); return; }
+      if(e.key === 'Tab'){   // keep focus inside the popup
+        var f = card.querySelectorAll('button, a[href]');
+        var first = f[0], last = f[f.length - 1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    });
+  })();
+})();
+</script>
+
+<script id="cta-hover-js">
+(function(){
+  document.querySelectorAll('.cta-actions a[data-logo]').forEach(function(a){
+    var logo = document.querySelector(a.getAttribute('data-logo'));
+    if(!logo) return;
+    ['mouseenter','focus'].forEach(function(e){ a.addEventListener(e, function(){ logo.classList.add('is-pop'); }); });
+    ['mouseleave','blur'].forEach(function(e){ a.addEventListener(e, function(){ logo.classList.remove('is-pop'); }); });
+  });
+})();
+</script>
+
 <script id="motion-js">
 (function(){
   'use strict';
@@ -1518,7 +1778,7 @@
   /* ---------- 1. Scroll reveal ---------- */
   var TARGETS = [
     '.section-head',
-    '.feat-grid > *', '.who-grid > *', '.steps > *',
+    '.feat-grid > *', '.who-grid > *', '.why-grid > *', '.steps > *',
     '.pillar-grid > *', '.svc-grid > *', '.stats-grid > *',
     '.leader-photo', '.leader-copy', '.faq > *',
     '.split-copy', '.split-media', '.cta-card', '.callout', '.def-box',

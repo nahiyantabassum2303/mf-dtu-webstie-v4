@@ -1215,7 +1215,7 @@
           <a class="link-more" href="#how-it-works">কীভাবে কাজ করে <svg width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg></a>
         </div>
       </div>
-      <div class="hero-photo img-frame"><img src="assets/ekota-hero.jpg" alt="একতা অ্যাপে রেফারার হিসেবে লিড জমা দিচ্ছেন এমন একজন ব্যবহারকারী" width="880" height="1100" loading="eager" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-hero.jpg</span></div>
+      <div class="hero-photo img-frame"><img src="assets/ekota-hero.png" alt="একতা অ্যাপে রেফারার হিসেবে লিড জমা দিচ্ছেন এমন একজন ব্যবহারকারী" width="880" height="1100" loading="eager" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-hero.jpg</span></div>
     </div>
   </section>
 
@@ -1729,6 +1729,17 @@
   .cc-ring.is-hover i{transform:scale(1.5)}
   .cc-ring.is-down i{transform:scale(.8)}
   .cc-on .cc-dot,.cc-on .cc-ring{opacity:1}
+
+  /* Hero logo frame: once the image loads, the frame takes the image's own shape instead of a fixed 4:5 crop */
+  .hero-photo.img-frame.has-img{
+    aspect-ratio:auto; display:block;
+    flex:0 1 auto; width:320px; max-width:100%; margin-inline:auto 0;
+    background:transparent; box-shadow:none; overflow:visible;
+  }
+  .hero-photo.img-frame.has-img img{
+    position:static; inset:auto; width:100%; height:auto; object-fit:contain;
+  }
+  .hero-photo.img-frame.has-img:hover img{transform:none;}
 </style>
 <script>
 (function(){

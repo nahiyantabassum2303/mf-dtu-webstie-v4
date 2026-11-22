@@ -974,26 +974,27 @@
   .pillar-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); box-shadow:var(--shadow-1); padding:24px; display:flex; flex-direction:column; gap:10px;}
   .pillar-num{font-size:var(--fs-lg); font-weight:600; line-height:1; color:var(--pink-600);}
   .pillar-card h3{font-size:var(--fs-md); line-height:1.35;}
-  .leader-list{display:grid; gap:24px; max-width:1000px; margin-inline:auto;}
-  .leader-card{display:grid; grid-template-columns:1fr minmax(240px, 300px); align-items:center; gap:clamp(24px, 5vw, 64px); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:clamp(24px, 4vw, 48px);}
-  .leader-card.reverse{grid-template-columns:minmax(240px, 300px) 1fr;}
-  .leader-card.reverse .leader-photo{order:-1;}
-  .leader-photo{aspect-ratio:1/1; border-radius:36px; width:100%;}
-  .leader-quote{margin:0 0 20px; font-size:var(--fs-md); font-weight:500; line-height:1.6; color:var(--ink);}
-  .leader-name{font-size:var(--fs-base); font-weight:600; color:var(--pink-600); margin-bottom:6px;}
-  .leader-role{font-weight:600; color:var(--ink); margin:0 0 14px;}
-  .leader-meta{list-style:none; margin:0 0 16px; padding:0; display:grid; gap:8px;}
-  .leader-meta li{display:flex; align-items:center; gap:10px; font-size:var(--fs-sm); color:var(--ink-soft);}
-  .leader-meta svg{flex:0 0 auto; width:16px; height:16px; color:var(--pink-600); opacity:.6;}
-  .leader-social{display:flex; gap:12px; margin-top:16px;}
-  .leader-social a{width:36px; height:36px; border-radius:var(--pill); background:var(--paper); color:var(--pink-700); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
-  .leader-social a:hover{background:var(--pink-50);}
+  /* team intro */
+  .team-head{max-width:760px; margin-bottom:40px;}
+  .team-chip{display:inline-block; margin-bottom:16px;}
+  .team-head h2{font-size:var(--fs-xl); line-height:1.25; font-weight:700; letter-spacing:-.01em; padding-bottom:18px; position:relative;}
+  .team-head h2::after{content:""; position:absolute; left:50%; bottom:0; width:56px; height:4px; border-radius:var(--pill); background:var(--pink-600); transform:translateX(-50%);}
+  .team-head p{margin-top:18px; font-size:var(--fs-base); line-height:1.75; max-width:60ch;}
+  /* leaders: photo, name, designation, LinkedIn */
+  .leader-list{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:24px; max-width:760px; margin-inline:auto;}
+  .leader-card{display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:clamp(20px, 3vw, 32px);}
+  .leader-photo{aspect-ratio:1/1; border-radius:28px; width:100%; max-width:260px;}
+  .leader-copy{display:flex; flex-direction:column; align-items:center; min-width:0;}
+  .leader-name{font-size:var(--fs-md); font-weight:700; line-height:1.3; color:var(--pink-600); margin-bottom:6px;}
+  .leader-role{font-weight:600; color:var(--ink); line-height:1.5; margin:0;}
+  .leader-social{display:flex; justify-content:center; gap:12px; margin-top:18px;}
+  .leader-social a{display:inline-flex; align-items:center; gap:8px; height:40px; padding:0 16px 0 12px; border-radius:var(--pill); background:var(--paper); color:var(--pink-700); border:1px solid var(--line); font-size:var(--fs-sm); font-weight:600;}
+  .leader-social a:hover{background:var(--pink-50); border-color:var(--pink-600);}
   .leader-social svg{width:18px; height:18px;}
   @media (max-width:900px){ .pillar-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:720px){
-    .leader-card, .leader-card.reverse{grid-template-columns:1fr;}
-    .leader-photo, .leader-card.reverse .leader-photo{order:-1; max-width:300px; margin-inline:auto;}
-  }
+  @media (max-width:640px){
+    .leader-list{grid-template-columns:1fr;}
+    }
   @media (max-width:560px){ .pillar-grid{grid-template-columns:1fr;} }
 </style>
 <style>
@@ -1008,7 +1009,7 @@
     display:flex; align-items:center;
   }
   .about-banner .banner-inner{position:relative; z-index:2; width:100%;}
-  .banner-copy{max-width:min(720px, 56%);}
+  .banner-copy{max-width:min(720px, 50%);}
   /* the banner reserves the height of the longer language (see data-lang-sizer in lang.js), so it is the same size in Bangla and English */
   .about-banner .banner-inner{display:grid;}
   .about-banner .banner-inner > *{grid-area:1 / 1; align-self:center; min-width:0;}
@@ -1016,7 +1017,7 @@
   .banner-copy[data-ghost], .banner-copy[data-ghost] *{animation:none !important;}
   .banner-kicker{display:block; font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:700; line-height:1.3; color:var(--pink-700); margin-bottom:12px;}
   .banner-title{font-size:clamp(1.375rem, 2.4vw, 1.75rem); font-weight:600; line-height:1.4; color:var(--ink); margin-bottom:14px;}
-  .banner-lead{font-size:clamp(1.0625rem, 1.5vw, 1.25rem); line-height:1.75; color:var(--ink);}
+  .banner-lead{font-size:clamp(1rem, 1.35vw, 1.1875rem); line-height:1.75; color:var(--ink);}
   /* photo is sized by the banner HEIGHT (so the face stays a sensible size) and pinned to the right edge */
   .banner-photo{
     position:absolute; z-index:1; top:0; right:0; bottom:0;
@@ -1208,10 +1209,10 @@
   .about-banner > .banner-photo{ z-index:1; }
   .about-banner > .stitch{ z-index:0; }
 
-  /* Keep the copy clear of the photo on desktop: it may only run a little way into the photo's faded left edge */
+  /* Keep the copy entirely clear of the photo on desktop: it stops at the photo's left edge (minus a small gap) */
   @media (min-width:821px){
     .banner-copy{
-      max-width:min(720px, calc(100vw - 0.75 * min(44vw, 560px) - max(0px, (100vw - var(--wrap)) / 2) - var(--gutter)));
+      max-width:min(720px, calc(100vw - min(44vw, 560px) - max(0px, (100vw - var(--wrap)) / 2) - var(--gutter) - 24px));
     }
   }
 </style>
@@ -1380,34 +1381,31 @@
   </section>
 
   <section class="section wrap" id="team" aria-labelledby="teamTitle">
-    <div class="section-head center">
-      <h2 id="teamTitle">ডিজিটাল টিম</h2>
-      <p>মাইক্রোফাইন্যান্স খাতে ডিজিটাল রূপান্তরের অগ্রদূত হিসেবে BRAC Microfinance এর Digital Transformation Unit কাজ করছে। প্রযুক্তি, ডিজাইন ও অপারেশনাল অভিজ্ঞতার সমন্বয়ে এই ইউনিটটি মানুষের প্রয়োজনমাফিক সহজ ও কার্যকর আর্থিক সেবা পৌঁছে দিতে প্রতিনিয়ত উদ্ভাবনী সমাধান তৈরি করছে।</p>
+    <div class="section-head center team-head">
+      <span class="chip team-chip">MF Digital Transformation Unit</span>
+      <h2 id="teamTitle">ডিজিটাল পথচলার নেতৃত্বে যাঁরা</h2>
+      <p>ডিজিটাল উদ্ভাবনের মাধ্যমে মাইক্রোফাইন্যান্সকে আরও স্বচ্ছ, সহজ ও মানুষের কাছে পৌঁছে দেওয়াই আমাদের লক্ষ্য।</p>
     </div>
     <div class="leader-list">
       <article class="leader-card">
+        <div class="leader-photo img-frame"><img src="assets/leader-sraboni.jpg" alt="Khadizatul Kobra Sraboni" width="600" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/leader-sraboni.jpg</span></div>
         <div class="leader-copy">
-          <blockquote class="leader-quote">ডিজিটাল উদ্ভাবনের মাধ্যমে মাইক্রোফাইন্যান্সকে আরও স্বচ্ছ, সহজ ও মানুষের কাছে পৌঁছে দেওয়াই আমাদের লক্ষ্য।</blockquote>
           <h3 class="leader-name">Khadizatul Kobra Sraboni</h3>
           <p class="leader-role">Lead, Digital Transformation Unit, BRAC</p>
-          <!-- TODO: add real social profile links -->
           <div class="leader-social">
-            <a href="https://www.linkedin.com/in/khadizatulkobrasraboni/?isSelfProfile=false" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><circle cx="8.3" cy="8.5" r="1" fill="currentColor"/><path d="M8.3 11v6M12 11v6M12 13.5c0-1.4 1-2.5 2.2-2.5S16.5 12 16.5 13.5V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+            <a href="https://www.linkedin.com/in/khadizatulkobrasraboni/?isSelfProfile=false" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><circle cx="8.3" cy="8.5" r="1" fill="currentColor"/><path d="M8.3 11v6M12 11v6M12 13.5c0-1.4 1-2.5 2.2-2.5S16.5 12 16.5 13.5V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>LinkedIn</span></a>
           </div>
         </div>
-        <div class="leader-photo img-frame"><img src="assets/leader-sraboni.jpg" alt="Khadizatul Kobra Sraboni" width="600" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/leader-sraboni.jpg</span></div>
       </article>
-      <article class="leader-card reverse">
+      <article class="leader-card">
+        <div class="leader-photo img-frame"><img src="assets/leader-easir.png" alt="Easir Arafat" width="600" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/leader-easir.png</span></div>
         <div class="leader-copy">
-          <blockquote class="leader-quote">ডিজিটাল উদ্ভাবনের মাধ্যমে মাইক্রোফাইন্যান্সকে আরও স্বচ্ছ, সহজ ও মানুষের কাছে পৌঁছে দেওয়াই আমাদের লক্ষ্য।</blockquote>
           <h3 class="leader-name">Easir Arafat</h3>
           <p class="leader-role">Head of Digital Transformation Unit, BRAC</p>
-          <!-- TODO: add real social profile links -->
           <div class="leader-social">
-            <a href="https://www.linkedin.com/in/easir-arafat-86078390/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><circle cx="8.3" cy="8.5" r="1" fill="currentColor"/><path d="M8.3 11v6M12 11v6M12 13.5c0-1.4 1-2.5 2.2-2.5S16.5 12 16.5 13.5V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+            <a href="https://www.linkedin.com/in/easir-arafat-86078390/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><circle cx="8.3" cy="8.5" r="1" fill="currentColor"/><path d="M8.3 11v6M12 11v6M12 13.5c0-1.4 1-2.5 2.2-2.5S16.5 12 16.5 13.5V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>LinkedIn</span></a>
           </div>
         </div>
-        <div class="leader-photo img-frame"><img src="assets/leader-easir.png" alt="Easir Arafat" width="600" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/leader-easir.jpg</span></div>
       </article>
     </div>
   </section>
