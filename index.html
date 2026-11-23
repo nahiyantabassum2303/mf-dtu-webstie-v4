@@ -659,13 +659,15 @@ body.qs-open{overflow:hidden;}
   .reviews-track::-webkit-scrollbar{display:none;}
   .review-card{
     position:relative; flex:0 0 auto;
-    width:220px; height:380px;
+    width:min(320px, 82vw);
     display:flex; flex-direction:column;
     border-radius:var(--r-md); overflow:hidden;
-    background:linear-gradient(180deg, #4A4350 0%, #2E2833 100%);
+    background:linear-gradient(180deg, #FFF6FA 0%, #FCE3EF 100%); border:1px solid #F6CFE2;
     scroll-snap-align:start;
-    box-shadow:var(--shadow-1);
+    box-shadow:0 1px 2px rgba(32,20,28,.05), 0 16px 32px -18px rgba(168,0,98,.38);
+    transition:box-shadow .3s ease, border-color .3s ease;
   }
+  .review-card::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg, #EB078E 0%, #A80062 100%); z-index:2;}
   .review-head{display:flex; align-items:center; gap:10px; padding:14px;}
   .review-avatar{position:relative; flex:0 0 auto; width:38px; height:38px;}
   .av-circle{
@@ -675,18 +677,31 @@ body.qs-open{overflow:hidden;}
   .av-circle img{width:26px; height:26px; object-fit:contain; display:block;}
   .verified{
     position:absolute; right:-2px; bottom:-2px; width:16px; height:16px;
-    border-radius:var(--pill); background:#1D9BF0; border:2px solid #2E2833;
+    border-radius:var(--pill); background:#1D9BF0; border:2px solid #FFF6FA;
     display:flex; align-items:center; justify-content:center;
   }
   .verified svg{width:9px; height:9px;}
   .review-who{line-height:1.35;}
-  .review-who .handle{display:block; font-size:var(--fs-sm); font-weight:600; color:#fff;}
-  .review-who .meta{display:block; font-size:.8125rem; color:rgba(255,255,255,.82);}
+  .review-who .handle{display:block; font-size:var(--fs-sm); font-weight:600; color:var(--ink);}
+  .review-who .meta{display:block; font-size:.8125rem; color:var(--pink-700); font-weight:500;}
   .review-photo{
-    flex:1 1 auto; display:flex; align-items:center; justify-content:center;
-    position:relative; color:rgba(255,255,255,.55);
+    flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+    position:relative; color:rgba(255,255,255,.55); aspect-ratio:16/9;
+    margin:0 12px; border-radius:var(--r-sm);
   }
-  .review-photo .ph-icon{position:absolute; width:30px; height:30px; top:28%;}
+  .review-photo{overflow:hidden; text-decoration:none; background:var(--ink); border:3px solid #fff; box-shadow:0 10px 20px -10px rgba(168,0,98,.5);}
+  .review-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease;}
+  .review-photo::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(32,20,28,0) 40%, rgba(32,20,28,.28) 100%); pointer-events:none;}
+  .review-photo .play{position:relative; z-index:1; transition:transform .25s ease;}
+  .review-photo:hover img, .review-photo:focus-visible img{transform:scale(1.06);}
+  .review-photo:hover .play, .review-photo:focus-visible .play{transform:scale(1.1);}
+  .review-photo:focus-visible{outline:3px solid var(--pink); outline-offset:-3px;}
+  .review-title{
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    padding:14px 16px 18px; min-height:calc(2 * 1.45em + 32px);
+    font-size:var(--fs-sm); font-weight:600; line-height:1.45; color:var(--ink); text-decoration:none;
+  }
+  .review-title:hover, .review-title:focus-visible{color:var(--pink-700);}
   .play{
     width:56px; height:56px; border-radius:var(--pill);
     background:rgba(255,255,255,.95); color:var(--pink-700);
@@ -953,6 +968,7 @@ body.qs-open{overflow:hidden;}
       transform:translateY(-8px);
       box-shadow:var(--shadow-2);
     }
+    .review-card:hover{border-color:rgba(235,7,142,.45); box-shadow:0 2px 4px rgba(32,20,28,.05), 0 26px 42px -20px rgba(168,0,98,.5);}
     .feat-card:hover, .who-card:hover, .pillar-card:hover, .svc-card:hover, .step:hover{
       border-color:var(--pink);
     }
@@ -1397,8 +1413,7 @@ body.qs-open{overflow:hidden;}
           <figcaption class="quote">
             <svg class="quote-mark" aria-hidden="true"><use href="#quote"/></svg>
             <p>মুদি দোকানটা এখন সুপারশপ হয়েছে</p>
-            <!-- TODO: this card repeats the name from card 1. Replace with the correct customer name. -->
-            <small>রহমান মিয়া, ঢাকা</small>
+            <small>জামশেদ হক, ঢাকা</small>
           </figcaption>
         </figure>
         <figure class="card" style="margin:0;">
@@ -1442,52 +1457,57 @@ body.qs-open{overflow:hidden;}
     <div class="wrap">
       <div class="reviews-head">
         <h2 id="reviewsTitle">ব্র্যাকের ডিজিটালাইজেশন হাজারো মানুষের জীবন বদলে দিচ্ছে</h2>
-        <a class="btn btn-outline" href="#">আরও রিভিউ দেখুন</a>
       </div>
 
       <div class="reviews-track" id="reviewsTrack">
-        <!-- Replace .review-photo contents with a real video poster image; keep the .play button. -->
+        <!-- Each card: YouTube thumbnail (img.youtube.com/vi/VIDEO_ID/hqdefault.jpg) + title, both linking to the video. Order: 1,3,4,6,5,2 -->
         <article class="review-card">
           <div class="review-head">
             <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
-            <div class="review-who"><span class="handle">@Brac</span><span class="meta">২৫৪ হাজার ফলোয়ার</span></div>
+            <div class="review-who"><span class="handle">@Brac</span><span class="meta">ইউটিউব</span></div>
           </div>
-          <div class="review-photo"><svg class="ph-icon" aria-hidden="true"><use href="#imgIcon"/></svg><button class="play" type="button" aria-label="ভিডিও চালান"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4Z"/></svg></button></div>
-        </article>
-        <article class="review-card">
-          <div class="review-head">
-            <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
-            <div class="review-who"><span class="handle">@Brac</span><span class="meta">৩৬৮ হাজার ফলোয়ার</span></div>
-          </div>
-          <div class="review-photo"><svg class="ph-icon" aria-hidden="true"><use href="#imgIcon"/></svg><button class="play" type="button" aria-label="ভিডিও চালান"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4Z"/></svg></button></div>
-        </article>
-        <article class="review-card">
-          <div class="review-head">
-            <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
-            <div class="review-who"><span class="handle">@Brac</span><span class="meta">লিংকডইন, ৯০.২ হাজার</span></div>
-          </div>
-          <div class="review-photo"><svg class="ph-icon" aria-hidden="true"><use href="#imgIcon"/></svg><button class="play" type="button" aria-label="ভিডিও চালান"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4Z"/></svg></button></div>
-        </article>
-        <article class="review-card">
-          <div class="review-head">
-            <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
-            <div class="review-who"><span class="handle">@Brac</span><span class="meta">২২৮ হাজার ফলোয়ার</span></div>
-          </div>
-          <div class="review-photo"><svg class="ph-icon" aria-hidden="true"><use href="#imgIcon"/></svg><button class="play" type="button" aria-label="ভিডিও চালান"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4Z"/></svg></button></div>
+          <a class="review-photo" href="https://www.youtube.com/watch?v=OK0idcZNwT4" target="_blank" rel="noopener" aria-label="ভিডিও চালান"><img src="https://img.youtube.com/vi/OK0idcZNwT4/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4Z"/></svg></span></a>
+          <a class="review-title" href="https://www.youtube.com/watch?v=OK0idcZNwT4" target="_blank" rel="noopener">ডিজিটাল ব্রাঞ্চ । ব্র্যাক</a>
         </article>
         <article class="review-card">
           <div class="review-head">
             <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
             <div class="review-who"><span class="handle">@Brac</span><span class="meta">ইউটিউব</span></div>
           </div>
-          <div class="review-photo"><svg class="ph-icon" aria-hidden="true"><use href="#imgIcon"/></svg><button class="play" type="button" aria-label="ভিডিও চালান"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4Z"/></svg></button></div>
+          <a class="review-photo" href="https://www.youtube.com/watch?v=ZPWyFgah8ZY" target="_blank" rel="noopener" aria-label="ভিডিও চালান"><img src="https://img.youtube.com/vi/ZPWyFgah8ZY/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4Z"/></svg></span></a>
+          <a class="review-title" href="https://www.youtube.com/watch?v=ZPWyFgah8ZY" target="_blank" rel="noopener">আগামী অ্যাপ: সেবা এখন হাতের নাগালে!</a>
         </article>
         <article class="review-card">
           <div class="review-head">
             <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
             <div class="review-who"><span class="handle">@Brac</span><span class="meta">ইউটিউব</span></div>
           </div>
-          <div class="review-photo"><svg class="ph-icon" aria-hidden="true"><use href="#imgIcon"/></svg><button class="play" type="button" aria-label="ভিডিও চালান"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8V4Z"/></svg></button></div>
+          <a class="review-photo" href="https://www.youtube.com/watch?v=0rYE2oAc4Xs" target="_blank" rel="noopener" aria-label="ভিডিও চালান"><img src="https://img.youtube.com/vi/0rYE2oAc4Xs/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4Z"/></svg></span></a>
+          <a class="review-title" href="https://www.youtube.com/watch?v=0rYE2oAc4Xs" target="_blank" rel="noopener">নির্ভরতা লোন | ব্র্যাক মাইক্রোফাইন্যান্স</a>
+        </article>
+        <article class="review-card">
+          <div class="review-head">
+            <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
+            <div class="review-who"><span class="handle">@Brac</span><span class="meta">ইউটিউব</span></div>
+          </div>
+          <a class="review-photo" href="https://www.youtube.com/watch?v=Eocr25JGBKw" target="_blank" rel="noopener" aria-label="ভিডিও চালান"><img src="https://img.youtube.com/vi/Eocr25JGBKw/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4Z"/></svg></span></a>
+          <a class="review-title" href="https://www.youtube.com/watch?v=Eocr25JGBKw" target="_blank" rel="noopener">স্বল্প আয়ের পরিবারকে সুরক্ষা দিতে অন্তর্ভুক্তিমূলক বিমা | ব্র্যাক মাইক্রোফাইন্যান্স</a>
+        </article>
+        <article class="review-card">
+          <div class="review-head">
+            <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
+            <div class="review-who"><span class="handle">@Brac</span><span class="meta">ইউটিউব</span></div>
+          </div>
+          <a class="review-photo" href="https://www.youtube.com/watch?v=K8j6unATnZw" target="_blank" rel="noopener" aria-label="ভিডিও চালান"><img src="https://img.youtube.com/vi/K8j6unATnZw/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4Z"/></svg></span></a>
+          <a class="review-title" href="https://www.youtube.com/watch?v=K8j6unATnZw" target="_blank" rel="noopener">শস্যনিরাপত্তা বিমা বিষয়ক প্রচারণা ১ | ব্র্যাক মাইক্রোফাইন্যান্স</a>
+        </article>
+        <article class="review-card">
+          <div class="review-head">
+            <div class="review-avatar"><span class="av-circle"><img src="assets/pinwheel-pink-transparent.png" alt="BRAC" width="26" height="26" loading="lazy"></span><span class="verified"><svg aria-hidden="true"><use href="#check"/></svg></span></div>
+            <div class="review-who"><span class="handle">@Brac</span><span class="meta">ইউটিউব</span></div>
+          </div>
+          <a class="review-photo" href="https://www.youtube.com/watch?v=8Y5-AwjnGKM" target="_blank" rel="noopener" aria-label="ভিডিও চালান"><img src="https://img.youtube.com/vi/8Y5-AwjnGKM/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8V4Z"/></svg></span></a>
+          <a class="review-title" href="https://www.youtube.com/watch?v=8Y5-AwjnGKM" target="_blank" rel="noopener">শস্যনিরাপত্তা বিমা | টিজার ৩ | ব্র্যাক মাইক্রোফাইন্যান্স</a>
         </article>
       </div>
 
