@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>আগামী অ্যাপ | BRAC Microfinance</title>
+<title>একতা অ্যাপ ও রেফারার প্রোগ্রাম | BRAC Microfinance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
@@ -171,7 +171,6 @@
   .lang-thumb{position:absolute; top:3px; left:3px; width:58px; height:34px; border-radius:var(--pill); background:linear-gradient(160deg,#F0269B,#C90065); box-shadow:0 6px 14px -6px rgba(201,0,101,.6); transition:transform .4s cubic-bezier(.34,1.4,.64,1);}
   .lang-switch[data-active="en"] .lang-thumb{transform:translateX(58px);}
   @media (max-width:520px){ .lang-switch button, .lang-thumb{width:48px; height:32px;} .lang-switch[data-active="en"] .lang-thumb{transform:translateX(48px);} }
-  @media (prefers-reduced-motion:reduce){ .lang-thumb{transition:none;} }
 
   .divider{width:1px; align-self:stretch; margin:8px 0; background:var(--line);}
 
@@ -847,14 +846,6 @@
   .callout{margin-top:36px; display:flex; gap:14px; align-items:flex-start; background:var(--pink-50); border:1px solid #F6C6DF; border-radius:var(--r-md); padding:18px 22px;}
   .callout svg{flex:0 0 auto; width:26px; height:26px; color:var(--pink-700); margin-top:2px;}
 
-  .results{background:var(--plum); color:#fff;}
-  .results .section-head h2{color:#fff;}
-  .results .section-head p{color:rgba(255,255,255,.85);}
-  .results-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
-  .res-card{background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.2); border-radius:var(--r-md); padding:28px 20px; text-align:center;}
-  .res-card strong{display:block; font-size:var(--fs-xl); line-height:1.15; color:#FF8BCB; margin-bottom:8px; font-weight:600;}
-  .res-card strong small{font-size:var(--fs-md); font-weight:600;}
-  .res-card span{font-size:var(--fs-sm); color:rgba(255,255,255,.9);}
 
   .tabs{display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
   .tab{min-height:var(--tap); padding:0 20px; border-radius:var(--pill); border:1.5px solid var(--line); background:var(--paper); color:var(--ink-soft); font-weight:600; cursor:pointer; white-space:nowrap; transition:background .15s ease, border-color .15s ease, color .15s ease;}
@@ -894,7 +885,6 @@
   @media (max-width:1000px){
     .who-grid{grid-template-columns:repeat(3, 1fr);}
     .steps{grid-template-columns:repeat(2, 1fr);}
-    .results-grid{grid-template-columns:repeat(2, 1fr);}
   }
   @media (max-width:760px){
     .split, .cta-card, .tab-panel{grid-template-columns:1fr;}
@@ -902,32 +892,6 @@
     .steps{grid-template-columns:1fr;}
     .who-grid{grid-template-columns:repeat(2, 1fr);}
     .tab-panel{text-align:left;}
-  }
-  @media (max-width:520px){
-    .results-grid{grid-template-columns:1fr;}
-  }
-
-  /* =========================================================
-     Agami page additions
-     ========================================================= */
-  .feat-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
-  .feat-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); padding:24px 20px; box-shadow:var(--shadow-1); display:flex; flex-direction:column; gap:8px;}
-  .feat-icon{width:48px; height:48px; border-radius:14px; background:var(--pink-50); color:var(--pink-700); display:flex; align-items:center; justify-content:center; margin-bottom:6px;}
-  .feat-icon svg{width:24px; height:24px;}
-  .feat-card h3{font-size:var(--fs-base);}
-  .feat-card p{font-size:var(--fs-sm); color:var(--ink-soft);}
-  .steps.steps-4{grid-template-columns:repeat(4, 1fr);}
-  .callout + .callout{margin-top:16px;}
-  .band .tab-panel{background:var(--paper);}
-  @media (max-width:1000px){
-    .feat-grid{grid-template-columns:repeat(2, 1fr);}
-    .steps.steps-4{grid-template-columns:repeat(2, 1fr);}
-  }
-  @media (max-width:760px){
-    .steps.steps-4{grid-template-columns:1fr;}
-  }
-  @media (max-width:520px){
-    .feat-grid{grid-template-columns:1fr;}
   }
 </style>
 <style id="motion-css">
@@ -976,7 +940,7 @@
 
   /* ---------- Hover: cards ---------- */
   @media (hover:hover) and (pointer:fine){
-    .feat-card, .who-card, .pillar-card, .svc-card, .step, .res-card,
+    .feat-card, .who-card, .pillar-card, .svc-card, .step,
     .stat-card, .leader-card, .review-card, .branch-card, .cta-card{
       transition:transform .35s var(--mv-ease), box-shadow .35s var(--mv-ease), border-color .35s ease, background-color .35s ease;
     }
@@ -988,7 +952,6 @@
     .feat-card:hover, .who-card:hover, .pillar-card:hover, .svc-card:hover, .step:hover{
       border-color:var(--pink);
     }
-    .res-card:hover{ transform:translateY(-6px); background:rgba(255,255,255,.14); }
     .branch-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-2); }
     .cta-card:hover{ transform:translateY(-4px); }
 
@@ -1169,6 +1132,14 @@
     <rect x="7" y="10" width="28" height="22" rx="3" stroke="currentColor" stroke-width="1.7"/>
     <path d="M14 20h14M14 26h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
   </symbol>
+  <symbol id="iconRocket" viewBox="0 0 24 24" fill="none">
+    <path d="M5 19c0-6 3-11 9-14 1 6-1 11-7 14l-2 0Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+    <path d="M5 19l-1 2M9 15l-2-1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="iconDisbursement" viewBox="0 0 24 24" fill="none">
+    <path d="M12 3v12M7 10l5 5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 20h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  </symbol>
 
   <!-- Ekota page icons -->
   <symbol id="iconWallet" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="14.5" r="1.2" fill="currentColor"/></symbol>
@@ -1177,15 +1148,6 @@
   <symbol id="iconCheck" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M8 12.5l2.7 2.7L16 9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="iconCoins" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M14.6 9.3c-.5-.8-1.4-1.3-2.6-1.3-1.5 0-2.5.7-2.5 1.8 0 2.6 5.1 1.2 5.1 3.8 0 1.1-1.1 1.9-2.6 1.9-1.2 0-2.2-.5-2.7-1.4M12 6.5V8M12 16v1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="iconInfo" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5M12 8v.01" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
-
-  <!-- Agami page icons -->
-  <symbol id="iconShield" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2.2 2.2L15.5 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="iconCalc" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="currentColor" stroke-width="1.7"/><rect x="8" y="6" width="8" height="3.5" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="iconMapPin" viewBox="0 0 24 24" fill="none"><path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.7"/></symbol>
-  <symbol id="iconBell" viewBox="0 0 24 24" fill="none"><path d="M6 16v-5a6 6 0 1 1 12 0v5l1.5 2h-15L6 16Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 20.5a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
-  <symbol id="iconClock" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="iconLock" viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="10" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor"/></symbol>
-  <symbol id="iconSms" viewBox="0 0 24 24" fill="none"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4 3.5V17h0A2.5 2.5 0 0 1 4 14.5v-8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 9.5h7M8.5 12.5h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
 </svg>
 
 <header>
@@ -1245,149 +1207,134 @@
   <section class="hero-band">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="ekota-eyebrow">আগামী অ্যাপ</span>
-        <h1>আপনার ঋণ, সঞ্চয় ও বিমার হিসাব  -  এখন এক অ্যাপে</h1>
-        <p class="lead">ব্র্যাক মাইক্রোফাইন্যান্স সদস্যদের জন্য প্রথম ফাইন্যান্সিয়াল অ্যাপ। চলতি ঋণ, সঞ্চয় ও বিমার তথ্য দেখুন, কিস্তির হিসাব জানুন এবং ঋণের জন্য আবেদন শুরু করুন।</p>
-        <p class="hero-stat"><strong>২০ লক্ষ+</strong><span>রেজিস্টার্ড আগামী ইউজার</span></p>
+        <span class="ekota-eyebrow">একতা অ্যাপ ও রেফারার প্রোগ্রাম</span>
+        <h1>আপনার সুপারিশেই বাড়বে আয়, বদলাবে জীবন</h1>
+        <p class="lead">দেশের যেকোনো প্রান্ত থেকে একতা অ্যাপে রেফারার হয়ে ব্র্যাক মাইক্রোফাইন্যান্সের সম্ভাব্য গ্রাহক সুপারিশ করুন।</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#download">আগামী অ্যাপ ডাউনলোড</a>
-          <a class="link-more" href="#how-to-login">কীভাবে লগইন করবেন <svg width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg></a>
+          <a class="btn btn-primary" href="#download">একতা অ্যাপ ডাউনলোড</a>
+          <a class="link-more" href="#how-it-works">কীভাবে কাজ করে <svg width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg></a>
         </div>
       </div>
-      <div class="hero-photo img-frame"><img src="assets/agami-logo.png" alt="আগামী অ্যাপ ব্যবহার করছেন এমন একজন গ্রাহক" width="880" height="1100" loading="eager" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-hero.jpg</span></div>
+      <div class="hero-photo img-frame"><img src="assets/ekota-hero.png" alt="একতা অ্যাপে রেফারার হিসেবে লিড জমা দিচ্ছেন এমন একজন ব্যবহারকারী" width="880" height="1100" loading="eager" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-hero.jpg</span></div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="section wrap" id="about" aria-labelledby="aboutTitle">
+  <!-- Why -->
+  <section class="section wrap" id="why" aria-labelledby="whyTitle">
     <div class="split">
       <div class="split-copy">
-        <span class="ekota-eyebrow">ব্র্যাক মাইক্রোফাইন্যান্স সদস্যদের জন্য</span>
-        <h2 id="aboutTitle">আগামী কী?</h2>
-        <p class="lead-p">ব্র্যাক মাইক্রোফাইন্যান্স সদস্যদের জন্য প্রথম ফাইন্যান্সিয়াল অ্যাপ  -  ‘আগামী’।</p>
+        <span class="ekota-eyebrow">লিড জেনারেশন প্রকল্প</span>
+        <h2 id="whyTitle">কেন লিড জেনারেশন?</h2>
         <ul class="check-list">
-          <li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>চলতি ঋণ, সঞ্চয় ও বিমা সংক্রান্ত সব তথ্য দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>ঋণ, বিশেষ সঞ্চয় ও বিমাসহ ব্র্যাক মাইক্রোফাইন্যান্সের অন্যান্য সব সেবার তথ্য এক জায়গায়</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>যোগ্যতা যাচাই করে ঋণ আবেদনের প্রক্রিয়া শুরু করুন</span></li>
+          <li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>আপনার পরিচিত আগ্রহী মানুষ ব্র্যাকের ঋণ ও সঞ্চয় সেবার সাথে যুক্ত হতে পারবেন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>প্রগতি/দাবি কর্মসূচির কর্মকর্তাদের সহায়ক মাধ্যম হিসেবে সেবা আরও দূরে পৌঁছে যাবে</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>সফল প্রতিটি লিডের কমিশন একতা অ্যাপেই দেখতে পাবেন</span></li>
         </ul>
-        <p class="def-box"><strong>কারা ব্যবহার করতে পারবেন?</strong> ব্র্যাক মাইক্রোফাইন্যান্সে নিবন্ধিত গ্রাহক/সদস্যরা  -  ব্র্যাকে নিবন্ধিত মোবাইল নম্বর ও জন্মসাল দিয়ে লগইন করা যায়।</p>
+        <p class="def-box"><strong>লিড মানে কী?</strong> লিড হলেন সেই সম্ভাব্য গ্রাহক, যাঁকে আপনি ব্র্যাকের ঋণ সেবার জন্য সুপারিশ করেন।</p>
       </div>
-      <div class="split-media img-frame"><img src="assets/agami-about.jpg" alt="ব্র্যাকের সেবা নিচ্ছেন একজন গ্রাহক" width="800" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-about.jpg</span></div>
+      <div class="split-media img-frame"><img src="assets/ekota-why.jpg" alt="ব্র্যাকের সেবা নিচ্ছেন গ্রামের একজন গ্রাহক" width="800" height="600" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-why.jpg</span></div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="section band" id="features" aria-labelledby="featTitle">
+  <!-- Who can be a referrer -->
+  <section class="section band" id="who" aria-labelledby="whoTitle">
     <div class="wrap">
       <div class="section-head center">
-        <h2 id="featTitle">আগামী দিয়ে কী কী করবেন</h2>
-        <p>আপনার আর্থিক সেবার সবকিছু এক জায়গায়</p>
+        <h2 id="whoTitle">কারা রেফারার হতে পারবেন?</h2>
+        <p>যাঁরা আমাদের সম্ভাব্য যোগ্য গ্রাহক দেওয়ার সক্ষমতা রাখেন</p>
       </div>
-      <div class="feat-grid">
-        <article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#iconWallet"/></svg></span><h3>ঋণের তথ্য</h3><p>চলতি ঋণের কার্ড, কিস্তি ও বকেয়ার হিসাব</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#qsSaving"/></svg></span><h3>সঞ্চয় ও বিশেষ সঞ্চয়</h3><p>সাধারণ ও বিশেষ সঞ্চয়ের জমার হিসাব</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#iconShield"/></svg></span><h3>বিমা</h3><p>বিমার ধরণ, প্রিমিয়াম ও পলিসি শেষের তারিখ</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#iconClock"/></svg></span><h3>পেমেন্ট ইতিহাস</h3><p>ক্যাশ, বিকাশ ও শিডিউল মিস  -  সব লেনদেনের ইতিহাস</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#iconCalc"/></svg></span><h3>ক্যালকুলেটর</h3><p>মাসিক কিস্তি, ডিপিএস ও বকেয়া ঋণের হিসাব নিজেই করুন</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#qsRefer"/></svg></span><h3>ঋণের আবেদন</h3><p>প্রোডাক্ট দেখে, যোগ্যতা জেনে আবেদন শুরু করুন</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#iconBell"/></svg></span><h3>নোটিফিকেশন</h3><p>কিস্তি বা সঞ্চয় জমা হলেই জানিয়ে দেয়</p></article><article class="feat-card"><span class="feat-icon"><svg aria-hidden="true"><use href="#iconMapPin"/></svg></span><h3>যোগাযোগ ও শাখা</h3><p>সহায়তার নম্বর ও গুগল ম্যাপে কাছের ব্র্যাক শাখা</p></article>
+      <div class="who-grid">
+        <article class="who-card"><span class="who-icon"><svg aria-hidden="true"><use href="#iconWallet"/></svg></span><h3>বিকাশ এজেন্ট</h3></article><article class="who-card"><span class="who-icon"><svg aria-hidden="true"><use href="#iconWallet"/></svg></span><h3>নগদ এজেন্ট</h3></article><article class="who-card"><span class="who-icon"><svg aria-hidden="true"><use href="#iconRocket"/></svg></span><h3>রকেট এজেন্ট</h3></article><article class="who-card"><span class="who-icon"><svg aria-hidden="true"><use href="#phoneIcon"/></svg></span><h3>ফ্লেক্সিলোড এজেন্ট</h3></article><article class="who-card"><span class="who-icon"><svg aria-hidden="true"><use href="#iconUsers"/></svg></span><h3>বিশ্বস্ত গ্রাহক ও সমাজের গ্রহণযোগ্য ব্যক্তিবর্গ ইত্যাদি</h3></article>
       </div>
+      <p class="note-line">নিকটস্থ এলাকার ব্র্যাক কর্মী একতা রেজিস্ট্রেশনে আপনাকে সহায়তা করবে।</p>
     </div>
   </section>
 
-  <!-- Login -->
-  <section class="section wrap" id="how-to-login" aria-labelledby="loginTitle">
+  <!-- How it works -->
+  <section class="section wrap" id="how-it-works" aria-labelledby="howTitle">
     <div class="section-head center">
-      <h2 id="loginTitle">কীভাবে লগইন করবেন</h2>
-      <p>চার ধাপে শুরু করুন</p>
+      <h2 id="howTitle">কীভাবে কাজ করে</h2>
+      <p>সাইন আপ থেকে কমিশন  -  ছয় ধাপে</p>
     </div>
-    <div class="steps steps-4">
-      <article class="step"><span class="step-num">১</span><span class="step-icon"><svg aria-hidden="true"><use href="#phoneIcon"/></svg></span><h3>অ্যাপ ডাউনলোড</h3><p>প্লে স্টোর বা অ্যাপ স্টোর থেকে Brac Agami ডাউনলোড করুন। প্রথমবার খুললেই কী কী পাবেন ও কীভাবে লগইন করবেন  -  সব স্ক্রিনে দেখানো আছে (ডানে সোয়াইপ করুন)।</p></article><article class="step"><span class="step-num">২</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconSms"/></svg></span><h3>মোবাইল নম্বর ও জন্মসাল</h3><p>ব্র্যাকে নিবন্ধিত মোবাইল নম্বর ও জন্মসাল দিয়ে “ওটিপি প্রাপ্তি” বাটনে ট্যাপ করুন। সহায়তা লাগলে “সাহায্য কেন্দ্র”-এ ট্যাপ করুন।</p></article><article class="step"><span class="step-num">৩</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><h3>ওটিপি যাচাই</h3><p>পাঠানো ওটিপি লিখে “যাচাই করুন এবং লগইন করুন” চাপুন। ওটিপি দেওয়ার জন্য ৫ মিনিট সময় পাবেন।</p></article><article class="step"><span class="step-num">৪</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconLock"/></svg></span><h3>পিন বা ফিঙ্গারপ্রিন্ট</h3><p>বায়োমেট্রিক স্ক্যান করুন অথবা “লোকাল পিন তৈরি করুন”। পিন অবশ্যই ৪ সংখ্যার হতে হবে।</p></article>
-    </div>
-    <div class="callout">
-      <svg aria-hidden="true"><use href="#iconInfo"/></svg>
-      <p><strong>ওটিপি না এলে:</strong> ৫ মিনিট পর আবার ওটিপির জন্য আবেদন করতে পারবেন  -  এভাবে পর পর ৩ বার। ৩ বার ব্যর্থ হলে ২০ মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</p>
+    <div class="steps">
+      <article class="step"><span class="step-num">১</span><span class="step-icon"><svg aria-hidden="true"><use href="#phoneIcon"/></svg></span><h3>অ্যাপ ডাউনলোড ও সাইন আপ</h3><p>নাম ও মোবাইল নম্বর দিন, ওটিপি দিয়ে লগ ইন করুন। আপনার মোবাইল নম্বরই হবে আপনার পিন।</p></article><article class="step"><span class="step-num">২</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconUserPlus"/></svg></span><h3>রেফারার রেজিস্ট্রেশন</h3><p>১০, ১৩ বা ১৭ ডিজিটের জাতীয় পরিচয়পত্র নম্বর, ঠিকানা ও সঠিক বিকাশ ওয়ালেট নম্বর দিয়ে নিবন্ধন সম্পন্ন করুন।</p></article><article class="step"><span class="step-num">৩</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><h3>অনুমোদন</h3><p>এরিয়া ম্যানেজার নিবন্ধন যাচাই করে অনুমোদন দিলে আপনি লিড দেওয়ার উপযুক্ত হবেন।</p></article><article class="step"><span class="step-num">৪</span><span class="step-icon"><svg aria-hidden="true"><use href="#qsRefer"/></svg></span><h3>লিড জমা দিন</h3><p>সম্ভাব্য গ্রাহকের তথ্য পূরণ করুন, ছবি সংযুক্ত করুন বা তখনই তুলে নিন, তারপর “জমা দিন” চাপুন।</p></article><article class="step"><span class="step-num">৫</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconDisbursement"/></svg></span><h3>যাচাই ও ঋণ প্রক্রিয়া</h3><p>লোনের উপযুক্ত হলে ব্র্যাক কর্মী যাচাই করে ঋণ বিতরণ করবে।</p></article><article class="step"><span class="step-num">৬</span><span class="step-icon"><svg aria-hidden="true"><use href="#iconCoins"/></svg></span><h3>কমিশন দেখুন</h3><p>ঋণ বিতরণ হলে কমিশনের উপযুক্ত হবেন এবং কমিশন সংক্রান্ত তথ্য অ্যাপে দেখতে পাবেন।</p></article>
     </div>
     <div class="callout">
       <svg aria-hidden="true"><use href="#iconInfo"/></svg>
-      <p><strong>মনে রাখুন:</strong> প্রথমবারের পর শুধু পিন (বা ফিঙ্গারপ্রিন্ট) দিয়েই লগইন করা যায়। টানা ৩০ দিন অ্যাপ ব্যবহার না করলে নিরাপত্তার জন্য স্বয়ংক্রিয়ভাবে লগআউট হয়ে যায়, তাই মাসে অন্তত ৩–৪ বার লগইন করুন।</p>
+      <p><strong>মনে রাখুন:</strong> কমিশন পেতে রেজিস্ট্রেশনের সময় অবশ্যই আপনার সঠিক বিকাশ ওয়ালেট নম্বর দিতে হবে।</p>
     </div>
   </section>
 
-  <!-- App tour -->
-  <section class="section band" id="app-tour" aria-labelledby="tourTitle">
-    <div class="wrap">
-      <div class="section-head center">
-        <h2 id="tourTitle">অ্যাপের ভেতরে যা যা পাবেন</h2>
-        <p>হোম থেকে প্রোফাইল  -  প্রতিটি স্ক্রিন এক নজরে</p>
-      </div>
-      <div class="tabs" role="tablist" aria-label="অ্যাপের ফিচার">
-        <button class="tab" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" tabindex="0" type="button">হোম</button>
-<button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1" type="button">ঋণ</button>
-<button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" type="button">সঞ্চয়</button>
-<button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" type="button">বিশেষ সঞ্চয় ও বিমা</button>
-<button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" type="button">প্রোডাক্টস</button>
-<button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1" type="button">ক্যালকুলেটর</button>
-<button class="tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1" type="button">নোটিফিকেশন</button>
-<button class="tab" role="tab" id="tab-7" aria-controls="panel-7" aria-selected="false" tabindex="-1" type="button">যোগাযোগ ও প্রোফাইল</button>
+  <!-- App features -->
+  <section class="section wrap" id="features" aria-labelledby="featTitle">
+    <div class="section-head center">
+      <h2 id="featTitle">একতা অ্যাপে যা যা পাবেন</h2>
+      <p>একটি অ্যাপেই লিড জমা, স্ট্যাটাস ও কমিশন  -  সব হাতের মুঠোয়</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="অ্যাপের ফিচার">
+      <button class="tab" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" tabindex="0" type="button">হোমপেজ</button>
+<button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1" type="button">লিড জমা</button>
+<button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" type="button">লিড স্ট্যাটাস</button>
+<button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" type="button">কমিশন</button>
+<button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" type="button">নোটিফিকেশন</button>
+<button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1" type="button">প্রোফাইল</button>
 
-      </div>
-      <div class="tab-panel" role="tabpanel" id="panel-0" aria-labelledby="tab-0">
-<div class="phone img-frame"><img src="assets/agami-app-home.jpg" alt="আগামী অ্যাপের হোম পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-home.jpg</span></div>
-<div class="panel-copy"><h3>সব তথ্য এক নজরে</h3><p>লগইন সফল হলে আগামী হোম পেজে চলতি ঋণ, সঞ্চয়, বিশেষ সঞ্চয় ও বিমার তথ্য পাবেন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>উপরের কার্ডে সব লোন ও সেভিংসের মোট পরিশোধের পরিমাণ</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>ঋণ, সঞ্চয়, বিশেষ সঞ্চয় ও বিমা  -  ট্যাব বদলে প্রতিটির কার্ড দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“ব্যবহারযোগ্য প্রোডাক্টস”-এ ব্র্যাকের অন্যান্য ঋণ, সঞ্চয় ও ইনস্যুরেন্স পণ্যের তথ্য</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>উপরে ভাষা পরিবর্তনের বাটন ও নোটিফিকেশন আইকন</span></li></ul><div class="chip-row"><span class="chip">ঋণ</span><span class="chip">সঞ্চয়</span><span class="chip">বিশেষ সঞ্চয়</span><span class="chip">বিমা</span></div></div>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="panel-0" aria-labelledby="tab-0">
+<div class="phone img-frame"><img src="assets/ekota-app-home.jpg" alt="একতা অ্যাপের হোমপেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-app-home.jpg</span></div>
+<div class="panel-copy"><h3>সবকিছু এক জায়গায়</h3><p>রেফারারের প্রয়োজনীয় সব কাজ হোমপেজ থেকেই করা যায়।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>সুপারিশকারী হিসেবে নিবন্ধন সম্পন্ন করুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>নতুন লিডের তথ্য যুক্ত করুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>জমা দেওয়া ও অনুমোদিত লিড দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>প্রগতি কর্মসূচির সব ঋণ ও সঞ্চয়ের তথ্য দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>আগামী অ্যাপে সুইচ করুন, ভাষা পরিবর্তন করুন ও নোটিফিকেশন দেখুন</span></li></ul></div>
 </div>
 <div class="tab-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-loan.jpg" alt="আগামী অ্যাপে ঋণের তথ্য" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-loan.jpg</span></div>
-<div class="panel-copy"><h3>ঋণের সব হিসাব হাতের মুঠোয়</h3><p>“ঋণ” অপশনে ট্যাপ করলে সক্রিয় ঋণের তথ্য কার্ডে দেখা যায়।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>একাধিক ঋণ থাকলে একাধিক কার্ড দেখাবে; সক্রিয় ঋণ না থাকলে কোনো তথ্য দেখাবে না</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>কার্ডে ট্যাপ করে নির্দিষ্ট ঋণের সকল তথ্য দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“অর্থ প্রদানের ইতিহাস”-এ পেমেন্টের সব ইতিহাস দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“বকেয়া ক্যালকুলেটর”-এ তারিখ বেছে নিয়ে সেই তারিখে ঋণ পরিশোধ করতে কত টাকা লাগবে তা জেনে নিন</span></li></ul><div class="chip-row"><span class="chip">ক্যাশ</span><span class="chip">বিকাশ</span><span class="chip">শিডিউল মিস</span></div></div>
+<div class="phone img-frame"><img src="assets/ekota-app-lead.jpg" alt="একতা অ্যাপে লিড জমা দেওয়ার পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-app-lead.jpg</span></div>
+<div class="panel-copy"><h3>সহজে লিড জমা দিন</h3><p>এরিয়া ম্যানেজার আপনার নিবন্ধন সফল বলে বিবেচনা করলে আপনি লিড দেওয়ার উপযুক্ত হবেন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>হোমপেজের “লিডের তথ্য যুক্ত করুন”-এ ক্লিক করুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>সম্ভাব্য গ্রাহকের সব তথ্য পূরণ করে “জমা দিন” চাপুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>লিডের যেকোনো ছবি সংযুক্ত করুন অথবা তখনই ছবি তুলে দিন</span></li></ul></div>
 </div>
 <div class="tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-savings.jpg" alt="আগামী অ্যাপে সঞ্চয়ের তথ্য" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-savings.jpg</span></div>
-<div class="panel-copy"><h3>সঞ্চয়ের হিসাব</h3><p>“সঞ্চয়” অপশনে ট্যাপ করলে সাধারণ সঞ্চয়ের তথ্য একটি কার্ডে দেখা যায়।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>কার্ডে ট্যাপ করে সঞ্চয়ের বিস্তারিত তথ্য দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“অর্থ প্রদানের ইতিহাস”-এ বিগত তারিখ অনুযায়ী পেমেন্টের ইতিহাস দেখুন (ক্যাশ/বিকাশ/শিডিউল মিস)</span></li></ul></div>
+<div class="phone img-frame"><img src="assets/ekota-app-status.jpg" alt="একতা অ্যাপে লিডের স্ট্যাটাস পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-app-status.jpg</span></div>
+<div class="panel-copy"><h3>প্রতিটি লিডের অবস্থা জানুন</h3><p>“লিডস” পেজে তিনটি ট্যাবে আপনার সব লিড দেখা যায়।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>পেন্ডিং: ড্রাফট ও অপেক্ষমাণ লিডের বিস্তারিত দেখা ও সম্পাদনা করা যায়</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>সফল: ঋণ আবেদন সফল হওয়া লিডের তালিকা</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>বাতিল: ঋণ আবেদন বাতিল হওয়া লিডের তালিকা, তারিখ বেছে নেওয়ার সুবিধাসহ</span></li></ul><div class="chip-row"><span class="chip">পেন্ডিং</span><span class="chip">সফল</span><span class="chip">বাতিল</span></div></div>
 </div>
 <div class="tab-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-special.jpg" alt="আগামী অ্যাপে বিশেষ সঞ্চয় ও বিমার তথ্য" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-special.jpg</span></div>
-<div class="panel-copy"><h3>বিশেষ সঞ্চয় ও বিমা</h3><p>হোমের “বিশেষ সঞ্চয়” ও “বিমা” ট্যাবে এ দুটির তথ্য আলাদা কার্ডে দেখা যায়।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>বিশেষ সঞ্চয়ের কার্ডে ট্যাপ করে বিস্তারিত ও বিগত সকল মাসের পেমেন্ট ইতিহাস দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>বিমা কার্ডে প্রিমিয়াম দেওয়া হয়েছে কি না, বিমার ধরণ ও পলিসি শেষের তারিখ জানুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>ব্র্যাক বর্তমানে ঋণ নিরাপত্তা বিমা অফার করছে</span></li></ul></div>
+<div class="phone img-frame"><img src="assets/ekota-app-commission.jpg" alt="একতা অ্যাপে কমিশনের বিবরণী পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-app-commission.jpg</span></div>
+<div class="panel-copy"><h3>কমিশনের হিসাব সবসময় হাতে</h3><p>কমিশনের বিবরণী বাটনে ক্লিক করলেই পুরো হিসাব দেখতে পাবেন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>মোট প্রাপ্য কমিশন ও এ পর্যন্ত পাওয়া কমিশন দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>বাৎসরিক বিবরণীতে বছরে মোট কমিশনের হিসাব</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>মাসিক বিবরণীতে প্রতি মাসের মোট কমিশনের হিসাব</span></li></ul><div class="chip-row"><span class="chip">বাৎসরিক বিবরণী</span><span class="chip">মাসিক বিবরণী</span></div></div>
 </div>
 <div class="tab-panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-products.jpg" alt="আগামী অ্যাপের প্রোডাক্টস পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-products.jpg</span></div>
-<div class="panel-copy"><h3>নতুন সেবা জানুন ও আবেদন করুন</h3><p>নিচের “প্রোডাক্টস” মেনুতে ব্র্যাক মাইক্রোফাইন্যান্সের সকল ঋণ, বিশেষ সঞ্চয় ও বিমার তথ্য পাবেন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>যেকোনো প্রোডাক্টের কার্ডে ট্যাপ করে বর্ণনা ও বিস্তারিত তথ্য দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>ঋণ ক্যালকুলেটরে সময়সীমা বদলে সম্ভাব্য মাসিক কিস্তি হিসেব করুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>আগ্রহী হলে “লোন আবেদনের জন্য অনুরোধ করুন” চেপে আবেদনের প্রক্রিয়া শুরু করুন</span></li></ul><div class="chip-row"><span class="chip">ঋণ</span><span class="chip">বিশেষ সঞ্চয়</span><span class="chip">বিমা</span></div></div>
+<div class="phone img-frame"><img src="assets/ekota-app-notification.jpg" alt="একতা অ্যাপের নোটিফিকেশন পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-app-notification.jpg</span></div>
+<div class="panel-copy"><h3>সব আপডেট এক জায়গায়</h3><p>হোমপেজের নোটিফিকেশন আইকনে ক্লিক করলেই সব আপডেট দেখা যাবে।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>প্রতিটি নোটিফিকেশনে ক্লিক করে বিস্তারিত তথ্য দেখুন</span></li></ul></div>
 </div>
 <div class="tab-panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-calculator.jpg" alt="আগামী অ্যাপের ক্যালকুলেটর" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-calculator.jpg</span></div>
-<div class="panel-copy"><h3>কিস্তি ও সঞ্চয়ের হিসাব নিজেই করুন</h3><p>নিচের নেভিগেশন থেকে “ক্যালকুলেটর” অপশনে ট্যাপ করুন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“ঋণ”: কত টাকা ঋণ নিলে মাসিক কিস্তি কত হবে</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“ডিপিএস” ও “মাসিক মুনাফা সঞ্চয়”: সঞ্চয়ের পরিমাণ ও মেয়াদ অনুযায়ী হিসাব</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>হিসাব হয় ব্র্যাকের ইন্টারেস্ট রেটের সঙ্গে মিলিয়ে</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>ক্যালকুলেটর থেকেই সরাসরি আবেদন শুরু করা যায়</span></li></ul><div class="chip-row"><span class="chip">ঋণ</span><span class="chip">ডিপিএস</span><span class="chip">মাসিক মুনাফা সঞ্চয়</span></div></div>
-</div>
-<div class="tab-panel" role="tabpanel" id="panel-6" aria-labelledby="tab-6" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-notification.jpg" alt="আগামী অ্যাপের নোটিফিকেশন পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-notification.jpg</span></div>
-<div class="panel-copy"><h3>প্রতিটি লেনদেনের খবর</h3><p>হোমের উপরের নোটিফিকেশন আইকনে ট্যাপ করুন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“লেনদেন” ট্যাবে গত ৬ মাসের লেনদেনের হিসাব দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“নোটিফিকেশন” ট্যাবে কিস্তি বা সঞ্চয় জমা হওয়া-সহ সব নোটিফিকেশন দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>হোমের উপরের বাটন থেকে বাংলা ↔ English ভাষা বদলানো যায়</span></li></ul></div>
-</div>
-<div class="tab-panel" role="tabpanel" id="panel-7" aria-labelledby="tab-7" hidden>
-<div class="phone img-frame"><img src="assets/agami-app-contact.jpg" alt="আগামী অ্যাপের যোগাযোগ ও প্রোফাইল পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-app-contact.jpg</span></div>
-<div class="panel-copy"><h3>সহায়তা ও নিজের তথ্য</h3><p>নিচের “যোগাযোগ” মেনুতে সহায়তার নম্বর পাবেন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>অ্যাপ ব্যবহারের সহায়তা, শাখা ব্যবস্থাপক, প্রোগ্রাম অর্গানাইজার ও ব্র্যাক মাইক্রোফাইন্যান্স কল সেন্টারের নম্বর  -  সরাসরি ফোন করা যায়</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>“নিকটবর্তী শাখাসমূহ”-এ নিজের লোকেশন থেকে গুগল ম্যাপে কাছের ব্র্যাক শাখা দেখুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>প্রোফাইলে নিজস্ব তথ্য দেখুন, ভাষা বদলান বা লগ আউট করুন</span></li></ul></div>
+<div class="phone img-frame"><img src="assets/ekota-app-profile.jpg" alt="একতা অ্যাপের প্রোফাইল পেজ" width="540" height="1080" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-app-profile.jpg</span></div>
+<div class="panel-copy"><h3>আপনার নিজের প্রোফাইল</h3><p>নিজের তথ্য ও যোগাযোগের সব ব্যবস্থা প্রোফাইলেই পাবেন।</p><ul class="check-list"><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>নিজের ছবি আপলোড করুন</span></li><li><span class="ci"><svg aria-hidden="true"><use href="#iconCheck"/></svg></span><span>যোগাযোগের সব তথ্য এক জায়গায় দেখুন</span></li></ul></div>
 </div>
 
-    </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section wrap" id="faq" aria-labelledby="faqTitle">
-    <div class="section-head center">
-      <h2 id="faqTitle">সচরাচর জিজ্ঞাসা</h2>
-    </div>
-    <div class="faq">
-<details><summary>লগইনের সময় বলছে একাধিক সদস্য পাওয়া গেছে। এখন কী করব?</summary><p>নিরাপত্তার কারণে একটি মোবাইল নম্বর দিয়ে শুধু একজন সদস্য আগামী অ্যাপে লগইন করতে পারেন। এমন বার্তা এলে আপনার দায়িত্বপ্রাপ্ত সিও/সিডিও-কে জানান। যাচাই ও অনুমোদনের পর ইআরপি-তে আপনার মোবাইল নম্বর হালনাগাদ করা হবে, তখন আবার লগইন করতে পারবেন।</p></details>
-<details><summary>আমার নম্বর বা জন্মসাল দিয়ে সদস্য পাওয়া যাচ্ছে না।</summary><p>নিশ্চিত করুন আপনি ব্র্যাকে নিবন্ধিত মোবাইল নম্বর ও সঠিক জন্মসাল ব্যবহার করছেন। অন্য নম্বর বা ভুল জন্মসাল দিলে লগইন করা যাবে না। প্রয়োজনে সিও/সিডিও বা সংশ্লিষ্ট শাখা থেকে নিবন্ধিত তথ্য যাচাই করে নিন।</p></details>
-<details><summary>ওটিপি পাচ্ছি না। কী করব?</summary><p>প্রথমে মোবাইলের নেটওয়ার্ক ও ইন্টারনেট ঠিক আছে কি না দেখুন। ফোনের স্টোরেজ পূর্ণ থাকলে নতুন SMS আসলেও দেখা যায় না, তাই স্টোরেজ খালি আছে কি না দেখুন। এরপর ৫ মিনিট অপেক্ষা করে আবার ওটিপির জন্য আবেদন করুন; এভাবে সর্বোচ্চ ৩ বার চেষ্টা করা যাবে। তারপরও না এলে সিও/সিডিও-কে জানান।</p></details>
-<details><summary>কিস্তি বা সঞ্চয় জমা দিয়েছি, কিন্তু অ্যাপে এখনও আগের তথ্য দেখাচ্ছে। কেন?</summary><p>কিস্তি বা সঞ্চয় জমা দেওয়ার পর সেটি প্রথমে শাখার হিসাব ব্যবস্থাপক কর্তৃক ইআরপি-তে পোস্টিং হতে হয়। পোস্টিং সম্পন্ন হওয়ার পর সর্বোচ্চ ১০ মিনিটের মধ্যে আগামী অ্যাপে তথ্য হালনাগাদ হয়ে যায়। এর পরও হালনাগাদ না হলে আপনার সিও/সিডিও-কে জানান।</p></details>
-<details><summary>আমার টাকা ঠিকভাবে জমা হয়েছে কি না কীভাবে বুঝব?</summary><p>ইআরপি-তে পোস্টিং হওয়ার সাথে সাথেই আগামী অ্যাপে একটি নোটিফিকেশন যাবে। এছাড়া ঋণ বা সঞ্চয় কার্ডের “পরিশোধের বিবরণ” অপশন থেকে সকল লেনদেনের বিস্তারিত দেখতে পারবেন।</p></details>
+  <section class="section band" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2 id="faqTitle">সচরাচর জিজ্ঞাসা</h2>
+      </div>
+      <div class="faq">
+        <details><summary>রেফারার হিসেবে রেজিস্ট্রেশনে কী কী লাগবে?</summary><p>আপনার নাম ও মোবাইল নম্বর, ১০, ১৩ বা ১৭ ডিজিটের জাতীয় পরিচয়পত্র নম্বর, ঠিকানা এবং সঠিক বিকাশ ওয়ালেট নম্বর। ঠিকানা দেওয়ার সময় ফোনের লোকেশন অন রাখতে হবে এবং ঠিকানার ডিমার্কেশন ব্র্যাকের ডিমার্কেশন অনুযায়ী সঠিক হতে হবে।</p></details>
+<details><summary>কমিশন পেতে আমাকে কী করতে হবে?</summary><p>রেজিস্ট্রেশনের সময় অবশ্যই আপনার সঠিক বিকাশ ওয়ালেট নম্বর দিতে হবে। আপনার দেওয়া লিড সফল হলে কমিশনের তথ্য একতা অ্যাপেই দেখতে পাবেন।</p></details>
+<details><summary>আমি কখন থেকে লিড দিতে পারব?</summary><p>এরিয়া ম্যানেজার আপনার রেজিস্ট্রেশন সফল বলে বিবেচনা করলে আপনি লিড দেওয়ার উপযুক্ত হবেন। এরপর হোমপেজ থেকে “লিডের তথ্য যুক্ত করুন”-এ ক্লিক করে লিড জমা দিতে পারবেন।</p></details>
+<details><summary>জমা দেওয়া লিডের অবস্থা কোথায় দেখব?</summary><p>হোমপেজে জমাকৃত বা গৃহীত লিডে ক্লিক করলে “লিডস” পেজে পেন্ডিং, সফল ও বাতিল - তিনটি ট্যাব দেখতে পাবেন। পেন্ডিং বা ড্রাফট লিডের তথ্য সম্পাদনাও করা যায়।</p></details>
+<details><summary>ওটিপি না পেলে কী করব?</summary><p>পুনরায় ওটিপির আবেদন করুন। ভুল নম্বর দিয়ে থাকলে সেই নম্বরে ক্লিক করে সঠিক নম্বর দিন। সাইন আপের পর আপনার মোবাইল নম্বরই হবে আপনার পিন।</p></details>
 
+      </div>
     </div>
   </section>
 
   <!-- Download -->
-  <section class="section wrap" id="download" style="padding-top:0;" aria-labelledby="dlTitle">
+  <section class="section wrap" id="download" aria-labelledby="dlTitle">
     <div class="cta-card">
       <div>
-        <h2 id="dlTitle">আজই ডাউনলোড করুন আগামী</h2>
-        <p>গুগল প্লে স্টোর বা অ্যাপ স্টোর থেকে “Brac Agami” ডাউনলোড করে নিজের ঋণ ও সঞ্চয়ের হিসাব এক জায়গায় দেখুন।</p>
-        <!-- TODO: replace # with the real Google Play / App Store links -->
+        <h2 id="dlTitle">আজই শুরু করুন একতা অ্যাপ দিয়ে</h2>
+        <p>গুগল প্লে স্টোর বা অ্যাপ স্টোরে “BRAC Ekota” লিখে সার্চ দিলেই অ্যাপটি পাবেন।</p>
+        <!-- TODO: replace # with the real Google Play / App Store links (or official badge artwork) -->
         <div class="store-badges">
-          <a class="store-badge" href="#"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3l14 9-14 9V3Z" fill="#00D2FF"/><path d="M4 3l10.5 9L4 21V3Z" fill="#00F076"/><path d="M14.5 12 4 3l14 4.5-3.5 4.5Z" fill="#FFDD55"/><path d="M14.5 12 4 21l14-4.5-3.5-4.5Z" fill="#FF3D57"/></svg><span class="store-text"><small>GET IT ON</small><strong>Google Play</strong></span></a>
-          <a class="store-badge" href="#"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.7 12.2c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.9-.8-1.5 0-2.9.9-3.6 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.8 2.3 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7 2-1.1 2.7-2.2c.9-1.2 1.2-2.4 1.2-2.5-.1 0-2.5-.9-2.5-3.7Z" fill="#fff"/><path d="M14.4 5.6c.6-.7 1-1.7.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5 1 .1 1.9-.5 2.5-1.2Z" fill="#fff"/></svg><span class="store-text"><small>Download on the</small><strong>App Store</strong></span></a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.bracits.agami_referrer&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3l14 9-14 9V3Z" fill="#00D2FF"/><path d="M4 3l10.5 9L4 21V3Z" fill="#00F076"/><path d="M14.5 12 4 3l14 4.5-3.5 4.5Z" fill="#FFDD55"/><path d="M14.5 12 4 21l14-4.5-3.5-4.5Z" fill="#FF3D57"/></svg><span class="store-text"><small>GET IT ON</small><strong>Google Play</strong></span></a>
+          <a class="store-badge" href="https://apps.apple.com/us/app/brac-ekota/id6465699716" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.7 12.2c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.9-.8-1.5 0-2.9.9-3.6 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.8 2.3 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7 2-1.1 2.7-2.2c.9-1.2 1.2-2.4 1.2-2.5-.1 0-2.5-.9-2.5-3.7Z" fill="#fff"/><path d="M14.4 5.6c.6-.7 1-1.7.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5 1 .1 1.9-.5 2.5-1.2Z" fill="#fff"/></svg><span class="store-text"><small>Download on the</small><strong>App Store</strong></span></a>
         </div>
       </div>
-      <div class="cta-media img-frame"><img src="assets/agami-download.jpg" alt="আগামী অ্যাপ ব্যবহার করছেন একজন গ্রাহক" width="680" height="850" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/agami-download.jpg</span></div>
+      <div class="cta-media img-frame"><img src="assets/ekota-download.jpg" alt="একতা অ্যাপ ব্যবহার করছেন এমন একজন রেফারার" width="680" height="850" loading="lazy" onerror="this.style.opacity=0"><svg class="ph-watermark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><use href="#imgIcon"/></svg><span class="ph-label">assets/ekota-download.jpg</span></div>
     </div>
   </section>
 
@@ -1423,7 +1370,7 @@
           <li><a href="agami.html">আগামী অ্যাপ</a></li>
           <li><a href="ekota.html">একতা অ্যাপ</a></li>
           <li><a href="dcs.html">DCS</a></li>
-          <li><a href="#">শাখা অবস্থান</a></li>
+          <li><a href="https://explore.brac.net/program/branch-locations/" target="_blank" rel="noopener">শাখা অবস্থান</a></li>
         </ul>
       </nav>
 
@@ -1457,7 +1404,7 @@
 
 <!-- Mobile sticky download bar -->
 <div class="mobile-cta">
-  <span>আগামী অ্যাপ</span>
+  <span>একতা অ্যাপ</span>
   <a class="btn btn-primary" href="#download">ডাউনলোড</a>
 </div>
 
@@ -1510,7 +1457,7 @@
     let index = 0;
     let timer = null;
     let inView = false;
-    let hoverPaused = false; let linked = false;
+    let hoverPaused = false; let focusPaused = false; let linked = false;
     const AUTOPLAY_MS = 4000;
 
     const FADE_MS = 260;
@@ -1547,7 +1494,7 @@
       if(reduceMotion || timer) return;
       timer = setInterval(() => select(index + 1), AUTOPLAY_MS);
     }
-    function sync(){ (inView && !hoverPaused && !linked && !document.hidden) ? startAutoplay() : stopAutoplay(); }
+    function sync(){ (inView && !hoverPaused && !focusPaused && !linked && !document.hidden) ? startAutoplay() : stopAutoplay(); }
     function restart(){ stopAutoplay(); sync(); }
 
     tabs.forEach((t, i) => {
@@ -1558,12 +1505,32 @@
       });
     });
 
-    // Pause only while the mouse or keyboard focus is on the tab buttons themselves  - 
-    // reading the panel content below should never stop the auto-advance.
-    tabsBar.addEventListener('mouseenter', () => { hoverPaused = true; sync(); });
-    tabsBar.addEventListener('mouseleave', () => { hoverPaused = false; sync(); });
-    tabsBar.addEventListener('focusin', () => { hoverPaused = true; sync(); });
-    tabsBar.addEventListener('focusout', () => { hoverPaused = false; sync(); });
+    // Pause while the mouse is anywhere inside the slides' rectangle (tab buttons + the panel below);
+    // resume as soon as it leaves. Keyboard focus on the tab buttons also pauses.
+    function getRect(){
+      const p = panels.find((x) => !x.hidden) || panels[index];
+      const a = tabsBar.getBoundingClientRect();
+      if(!p) return a;
+      const b = p.getBoundingClientRect();
+      return { left: Math.min(a.left, b.left), top: Math.min(a.top, b.top), right: Math.max(a.right, b.right), bottom: Math.max(a.bottom, b.bottom) };
+    }
+    function onHover(v){ hoverPaused = v; sync(); }
+    // Pointer guard: true while a real mouse pointer is inside the slides' rectangle.
+    const hoverGuard = (function(){
+      let px = -1, py = -1, inside = false;
+      function check(){
+        const r = getRect();
+        const now = !!r && px >= r.left && px <= r.right && py >= r.top && py <= r.bottom;
+        if(now !== inside){ inside = now; onHover(inside); }
+      }
+      document.addEventListener('pointermove', (e) => { if(e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; check(); }, {passive:true});
+      document.documentElement.addEventListener('mouseleave', () => { px = py = -1; check(); });
+      window.addEventListener('blur', () => { px = py = -1; check(); });
+      window.addEventListener('scroll', check, {passive:true});
+      return () => inside;
+    })();
+    tabsBar.addEventListener('focusin', (e) => { focusPaused = e.target.matches(':focus-visible'); sync(); });
+    tabsBar.addEventListener('focusout', () => { focusPaused = false; sync(); });
     document.addEventListener('visibilitychange', sync);
 
     // Only run the slideshow once this section has scrolled fully into view;
@@ -1605,7 +1572,7 @@
   /* ---------- 1. Scroll reveal ---------- */
   var TARGETS = [
     '.section-head',
-    '.feat-grid > *', '.who-grid > *', '.results-grid > *', '.steps > *',
+    '.feat-grid > *', '.who-grid > *', '.steps > *',
     '.pillar-grid > *', '.svc-grid > *', '.stats-grid > *',
     '.leader-photo', '.leader-copy', '.faq > *',
     '.split-copy', '.split-media', '.cta-card', '.callout', '.def-box',
@@ -1684,7 +1651,7 @@
   }
 
   var counters = [];
-  document.querySelectorAll('.hero-stat strong, .stat-pill strong, .res-card strong, .stat-card strong')
+  document.querySelectorAll('.hero-stat strong, .stat-pill strong, .stat-card strong')
     .forEach(function(el){ var c = prepCounter(el); if(c){ c.el = el; counters.push(c); } });
 
   function run(c){

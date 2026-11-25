@@ -674,7 +674,7 @@ body.qs-open{overflow:hidden;}
     width:38px; height:38px; border-radius:var(--pill); background:#fff;
     display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
-  .av-circle img{width:26px; height:26px; object-fit:contain; display:block;}
+  .av-circle img{width:48px; height:48px; object-fit:contain; display:block;}
   .verified{
     position:absolute; right:-2px; bottom:-2px; width:16px; height:16px;
     border-radius:var(--pill); background:#1D9BF0; border:2px solid #FFF6FA;
@@ -1457,7 +1457,6 @@ body.qs-open{overflow:hidden;}
     <div class="wrap">
       <div class="reviews-head">
         <h2 id="reviewsTitle">ব্র্যাকের ডিজিটালাইজেশন হাজারো মানুষের জীবন বদলে দিচ্ছে</h2>
-        <a class="btn btn-outline" href="#">আরও রিভিউ দেখুন</a>
       </div>
 
       <div class="reviews-track" id="reviewsTrack">
@@ -1552,7 +1551,7 @@ body.qs-open{overflow:hidden;}
           <li><a href="agami.html">আগামী অ্যাপ</a></li>
           <li><a href="ekota.html">একতা অ্যাপ</a></li>
           <li><a href="dcs.html">DCS</a></li>
-          <li><a href="#">শাখা অবস্থান</a></li>
+          <li><a href="https://explore.brac.net/program/branch-locations/" target="_blank" rel="noopener">শাখা অবস্থান</a></li>
         </ul>
       </nav>
 
@@ -1647,8 +1646,9 @@ body.qs-open{overflow:hidden;}
     const slides = Array.from(track.children);
     let index = 0;
     let timer = null;
-    const AUTOPLAY_MS = 3500;   // time each slide stays on screen
+    const AUTOPLAY_MS = 2500;   // time each slide stays on screen
     let inView = false;         // autoplay runs only while the section is on screen
+    let hoverGuard = () => false;   // set below: true while the mouse is inside the slideshow
 
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
@@ -1674,7 +1674,7 @@ body.qs-open{overflow:hidden;}
       if(timer){ clearInterval(timer); timer = null; }
     }
     function startAutoplay(){
-      if(reduceMotion || !inView) return;
+      if(reduceMotion || !inView || hoverGuard()) return;
       stopAutoplay();
       timer = setInterval(() => goTo(index + 1), AUTOPLAY_MS);
     }
@@ -1702,8 +1702,23 @@ body.qs-open{overflow:hidden;}
       startAutoplay();
     }, {passive:true});
 
-    root.addEventListener('mouseenter', stopAutoplay);
-    root.addEventListener('mouseleave', startAutoplay);
+    // Pause while the mouse is anywhere inside the slideshow rectangle; resume when it leaves.
+    function getRect(){ return root.getBoundingClientRect(); }
+    function onHover(v){ if(v) stopAutoplay(); else startAutoplay(); }
+    // Pointer guard: true while a real mouse pointer is inside the slides' rectangle.
+    hoverGuard = (function(){
+      let px = -1, py = -1, inside = false;
+      function check(){
+        const r = getRect();
+        const now = !!r && px >= r.left && px <= r.right && py >= r.top && py <= r.bottom;
+        if(now !== inside){ inside = now; onHover(inside); }
+      }
+      document.addEventListener('pointermove', (e) => { if(e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; check(); }, {passive:true});
+      document.documentElement.addEventListener('mouseleave', () => { px = py = -1; check(); });
+      window.addEventListener('blur', () => { px = py = -1; check(); });
+      window.addEventListener('scroll', check, {passive:true});
+      return () => inside;
+    })();
     root.addEventListener('focusin', stopAutoplay);
     root.addEventListener('focusout', startAutoplay);
     document.addEventListener('visibilitychange', () => {

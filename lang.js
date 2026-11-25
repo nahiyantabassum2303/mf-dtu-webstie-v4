@@ -3,6 +3,8 @@
 (function(){
   'use strict';
   var EN = {
+"আরও রিভিউ দেখুন": "See more reviews",
+"ডিসিএস | BRAC Microfinance": "DCS | BRAC Microfinance",
 "শস্যনিরাপত্তা বিমা | টিজার ৩ | ব্র্যাক মাইক্রোফাইন্যান্স": "Crop Insurance | Teaser 3 | BRAC Microfinance",
 "নির্ভরতা লোন | ব্র্যাক মাইক্রোফাইন্যান্স": "Nirbhorota Loan | BRAC Microfinance",
 "স্বল্প আয়ের পরিবারকে সুরক্ষা দিতে অন্তর্ভুক্তিমূলক বিমা | ব্র্যাক মাইক্রোফাইন্যান্স": "Inclusive insurance to protect low income households | BRAC Microfinance",

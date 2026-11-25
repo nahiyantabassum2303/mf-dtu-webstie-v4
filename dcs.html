@@ -1501,7 +1501,7 @@ body.qs-open{overflow:hidden;}
           <li><a href="agami.html">আগামী অ্যাপ</a></li>
           <li><a href="ekota.html">একতা অ্যাপ</a></li>
           <li><a href="dcs.html">DCS</a></li>
-          <li><a href="#">শাখা অবস্থান</a></li>
+          <li><a href="https://explore.brac.net/program/branch-locations/" target="_blank" rel="noopener">শাখা অবস্থান</a></li>
         </ul>
       </nav>
 
@@ -1583,8 +1583,8 @@ body.qs-open{overflow:hidden;}
     let index = 0;
     let timer = null;
     let inView = false;
-    let hoverPaused = false; let linked = false;
-    const AUTOPLAY_MS = 4000;
+    let hoverPaused = false; let focusPaused = false; let linked = false;
+    const AUTOPLAY_MS = 3000;
 
     const FADE_MS = 260;
     let fadeTimer = null;
@@ -1620,7 +1620,7 @@ body.qs-open{overflow:hidden;}
       if(reduceMotion || timer) return;
       timer = setInterval(() => select(index + 1), AUTOPLAY_MS);
     }
-    function sync(){ (inView && !hoverPaused && !linked && !document.hidden) ? startAutoplay() : stopAutoplay(); }
+    function sync(){ (inView && !hoverPaused && !focusPaused && !linked && !document.hidden) ? startAutoplay() : stopAutoplay(); }
     function restart(){ stopAutoplay(); sync(); }
 
     tabs.forEach((t, i) => {
@@ -1631,12 +1631,32 @@ body.qs-open{overflow:hidden;}
       });
     });
 
-    // Pause only while the mouse or keyboard focus is on the tab buttons themselves  - 
-    // reading the panel content below should never stop the auto-advance.
-    tabsBar.addEventListener('mouseenter', () => { hoverPaused = true; sync(); });
-    tabsBar.addEventListener('mouseleave', () => { hoverPaused = false; sync(); });
-    tabsBar.addEventListener('focusin', () => { hoverPaused = true; sync(); });
-    tabsBar.addEventListener('focusout', () => { hoverPaused = false; sync(); });
+    // Pause while the mouse is anywhere inside the slides' rectangle (tab buttons + the panel below);
+    // resume as soon as it leaves. Keyboard focus on the tab buttons also pauses.
+    function getRect(){
+      const p = panels.find((x) => !x.hidden) || panels[index];
+      const a = tabsBar.getBoundingClientRect();
+      if(!p) return a;
+      const b = p.getBoundingClientRect();
+      return { left: Math.min(a.left, b.left), top: Math.min(a.top, b.top), right: Math.max(a.right, b.right), bottom: Math.max(a.bottom, b.bottom) };
+    }
+    function onHover(v){ hoverPaused = v; sync(); }
+    // Pointer guard: true while a real mouse pointer is inside the slides' rectangle.
+    const hoverGuard = (function(){
+      let px = -1, py = -1, inside = false;
+      function check(){
+        const r = getRect();
+        const now = !!r && px >= r.left && px <= r.right && py >= r.top && py <= r.bottom;
+        if(now !== inside){ inside = now; onHover(inside); }
+      }
+      document.addEventListener('pointermove', (e) => { if(e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; check(); }, {passive:true});
+      document.documentElement.addEventListener('mouseleave', () => { px = py = -1; check(); });
+      window.addEventListener('blur', () => { px = py = -1; check(); });
+      window.addEventListener('scroll', check, {passive:true});
+      return () => inside;
+    })();
+    tabsBar.addEventListener('focusin', (e) => { focusPaused = e.target.matches(':focus-visible'); sync(); });
+    tabsBar.addEventListener('focusout', () => { focusPaused = false; sync(); });
     document.addEventListener('visibilitychange', sync);
 
     // Only run the slideshow once this section has scrolled fully into view;
